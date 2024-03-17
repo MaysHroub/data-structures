@@ -23,6 +23,7 @@ public class LinkedList<T extends Comparable<T>> {
 		}
 		else if (curr == null)   // insert last
 			prev.next = newNode;
+		
 		else {                   // insert between
 			newNode.next = curr;
 			prev.next = newNode;
@@ -60,6 +61,18 @@ public class LinkedList<T extends Comparable<T>> {
 			return curr;
 		
 		return null;
+	}
+	
+	public Node<T> recursiveFind(T data) {
+		return recursiveFind(data, head);
+	}
+	
+	private Node<T> recursiveFind(T data, Node<T> curr) {
+		if (curr == null || curr.data.compareTo(data) > 0) 
+			return null;
+		if (curr != null && curr.data.compareTo(data) == 0)
+			return curr;
+		return recursiveFind(data, curr.next);
 	}
 	
 }
