@@ -130,5 +130,17 @@ public class LinkedList<T extends Comparable<T>> {
 	}
 	
 	
+	@Override
+	public String toString() {
+		Node<T> curr = head;
+		String linkedlist = "Head --> ";
+		while (curr != null) {
+			linkedlist += curr + " --> ";
+			curr = curr.next;
+		}
+		return linkedlist + "Null";
+	}
+	
+	
 }
 
