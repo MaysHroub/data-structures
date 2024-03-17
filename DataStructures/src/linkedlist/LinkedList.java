@@ -30,6 +30,7 @@ public class LinkedList<T extends Comparable<T>> {
 		}
 	}
 	
+	
 	public void recursiveInsert(T data) {
 		recursiveInsert(data, null, head);
 	}
@@ -51,6 +52,7 @@ public class LinkedList<T extends Comparable<T>> {
 		recursiveInsert(data, curr, curr.next);
 	}
 	
+	
 	public Node<T> find(T data) {
 		Node<T> curr = head;
 		
@@ -63,6 +65,7 @@ public class LinkedList<T extends Comparable<T>> {
 		return null;
 	}
 	
+	
 	public Node<T> recursiveFind(T data) {
 		return recursiveFind(data, head);
 	}
@@ -73,6 +76,25 @@ public class LinkedList<T extends Comparable<T>> {
 		if (curr != null && curr.data.compareTo(data) == 0)
 			return curr;
 		return recursiveFind(data, curr.next);
+	}
+	
+	
+	public Node<T> delete(T data) {
+		Node<T> prev = null, curr = head;
+		
+		for (; curr != null && curr.data.compareTo(data) < 0;
+				prev = curr, curr = curr.next);
+		
+		if (curr != null && curr.data.compareTo(data) == 0) {
+			if (prev == null)  // delete the first node
+				head = curr.next;
+			else if (curr.next == null) // delete the last node
+				prev.next = null;
+			else                // delete a middle node
+				prev.next = curr.next;
+			return curr;
+		}
+		return null;
 	}
 	
 }
