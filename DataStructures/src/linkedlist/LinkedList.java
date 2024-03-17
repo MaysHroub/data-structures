@@ -1,5 +1,7 @@
 package linkedlist;
 
-public class LinkedList {
-
+public class LinkedList<T extends Comparable<T>> {
+	
+	
+	
 }
