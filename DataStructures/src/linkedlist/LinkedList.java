@@ -97,6 +97,27 @@ public class LinkedList<T extends Comparable<T>> {
 		return null;
 	}
 	
+	
+	public Node<T> recursiveDelete(T data) {
+		return recursiveDelete(data, null, head);
+	}
+	
+	private Node<T> recursiveDelete(T data, Node<T> prev, Node<T> curr) {
+		if (curr == null || curr.data.compareTo(data) > 0)
+			return null;
+		
+		if (curr != null && curr.data.compareTo(data) == 0) {
+			if (prev == null)  // delete the first node
+				head = curr.next;
+			else if (curr.next == null) // delete the last node
+				prev.next = null;
+			else                // delete a middle node
+				prev.next = curr.next;
+			return curr;
+		}
+		return recursiveDelete(data, curr, curr.next);
+	}
+	
 }
 
 
