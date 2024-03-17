@@ -1,5 +1,7 @@
 package linkedlist;
 
+import java.util.Currency;
+
 public class LinkedList<T extends Comparable<T>> {
 	
 	Node<T> head;
@@ -27,6 +29,23 @@ public class LinkedList<T extends Comparable<T>> {
 			newNode.next = curr;
 			prev.next = newNode;
 		}
+	}
+	
+	public void recursiveInsert(T data, Node<T> prev, Node<T> curr) {
+		if (curr == null || curr.data.compareTo(data) >= 0) {
+			Node<T> newNode = new Node<>(data);
+			if (prev == null /*or curr == head*/) {  // insert first
+				newNode.next = head;
+				head = newNode;
+			}
+			else if (curr == null)   // insert last
+				prev.next = newNode;
+			else {                   // insert between
+				newNode.next = curr;
+				prev.next = newNode;
+			}
+		}
+		recursiveInsert(data, curr, curr.next);
 	}
 	
 }
