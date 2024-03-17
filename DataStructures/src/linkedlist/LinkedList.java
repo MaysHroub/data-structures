@@ -118,15 +118,17 @@ public class LinkedList<T extends Comparable<T>> {
 		return recursiveDelete(data, curr, curr.next);
 	}
 	
+	
+	public void traverse() {
+		Node<T> curr = head;
+		System.out.print("Head --> ");
+		while (curr != null) {
+			System.out.print(curr + " --> ");
+			curr = curr.next;
+		}
+		System.out.println("Null");
+	}
+	
+	
 }
-
-
-
-
-
-
-
-
-
-
 
