@@ -1,7 +1,7 @@
 package linkedlist;
 
 public class LinkedList<T extends Comparable<T>> {
-	
+
 	Node<T> head;
 	
 	
@@ -48,6 +48,18 @@ public class LinkedList<T extends Comparable<T>> {
 			}
 		}
 		recursiveInsert(data, curr, curr.next);
+	}
+	
+	public Node<T> find(T data) {
+		Node<T> curr = head;
+		
+		for (; curr != null && curr.data.compareTo(data) < 0;
+				curr = curr.next);
+		
+		if (curr != null && curr.data.compareTo(data) == 0)
+			return curr;
+		
+		return null;
 	}
 	
 }
