@@ -28,6 +28,8 @@ public class TestLinkedList {
 		list.recursiveInsert(99); // insert last
 		list.recursiveInsert(55); // insert between
 		list.traverse();
+		
+		System.out.println(list.length());
 
 		// -------------- delete existing data
 //		list.delete(40); // delete first
@@ -75,6 +77,7 @@ public class TestLinkedList {
 		System.out.println((list.recursiveFind(99) == null) ? "99 doesn't exist" : "99 exists");
 		System.out.println((list.recursiveFind(55) == null) ? "55 doesn't exist" : "55 exists");
 		
+		System.out.println(list.length());
 	}
 
 }
