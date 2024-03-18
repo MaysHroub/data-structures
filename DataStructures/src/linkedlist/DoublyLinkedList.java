@@ -53,6 +53,17 @@ public class DoublyLinkedList<T extends Comparable<T>> {
 		return curr;
 	}
 	
+	
+	public void traverse() {
+		DNode<T> curr = head;
+		System.out.print("Head --> ");
+		while (curr != null) {
+			System.out.print(curr + " --> ");
+			curr = curr.next;
+		}
+		System.out.println("Null");
+	}
+	
 }
 
 
