@@ -120,6 +120,17 @@ public class LinkedList<T extends Comparable<T>> {
 	}
 	
 	
+	public int length() {
+		int count = 0;
+		Node<T> curr = head;
+		while (curr != null) {
+			count++;
+			curr = curr.next;
+		}
+		return count;
+	}
+	
+	
 	public void traverse() {
 		Node<T> curr = head;
 		System.out.print("Head --> ");
