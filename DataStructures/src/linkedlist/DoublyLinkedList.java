@@ -33,6 +33,26 @@ public class DoublyLinkedList<T extends Comparable<T>> {
 		}
 	}
 	
+	
+	public DNode<T> delete(T data) {
+		DNode<T> curr = head;
+		for (; curr.next != null && curr.data.compareTo(data) < 0;
+				curr = curr.next);
+		
+		if (curr.data.compareTo(data) != 0)
+			return null;
+		
+		if (curr == head) 
+			head = curr.next;
+		else if (curr.next == null)
+			curr.prev = null;
+		else {
+			curr.next.prev = curr.prev;
+			curr.prev.next = curr.next;
+		}
+		return curr;
+	}
+	
 }
 
 
