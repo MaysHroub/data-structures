@@ -32,10 +32,6 @@ public class LinkedList<T extends Comparable<T>> {
 	
 	
 	public void recursiveInsert(T data) {
-		if (head == null) {
-			head = new Node<T>(data);
-			return;
-		}
 		recursiveInsert(data, null, head);
 	}
 	
