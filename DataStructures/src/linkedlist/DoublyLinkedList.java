@@ -16,7 +16,7 @@ public class DoublyLinkedList<T extends Comparable<T>> {
 		for (; curr.next != null && curr.data.compareTo(data) < 0;
 				curr = curr.next);
 		
-		if (curr == head) { // insert first
+		if (curr == head && curr.data.compareTo(data) > 0) { // insert first
 			newNode.next = head;
 			head.prev = newNode;
 			head = newNode;
