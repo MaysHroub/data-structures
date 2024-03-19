@@ -1,5 +1,7 @@
 package linkedlist;
 
+import java.util.Currency;
+
 public class DoublyLinkedList<T extends Comparable<T>> {
 	
 	DNode<T> head;
@@ -123,6 +125,16 @@ public class DoublyLinkedList<T extends Comparable<T>> {
 			curr = curr.next;
 		}
 		return count;
+	}
+	
+	
+	public int recursiveLength() {
+		return recursiveLength(head);
+	}
+	
+	private int recursiveLength(DNode<T> curr) {
+		if (curr == null) return 0;
+		return 1 + recursiveLength(curr.next);
 	}
 	
 	
