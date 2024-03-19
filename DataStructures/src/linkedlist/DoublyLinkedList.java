@@ -173,5 +173,17 @@ public class DoublyLinkedList<T extends Comparable<T>> {
 		}
 		System.out.println("Null");
 	}
+	
+	public void recursiveBackwardReverse() {
+		System.out.print("Tail --> ");
+		recursiveBackwardReverse(head);
+		System.out.println("Null");
+	}
+
+	private void recursiveBackwardReverse(DNode<T> curr) {
+		if (curr == null) return;
+		recursiveBackwardReverse(curr.next);
+		System.out.print(curr + " --> ");
+	}
 
 }
