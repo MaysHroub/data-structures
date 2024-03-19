@@ -97,7 +97,10 @@ public class DoublyLinkedList<T extends Comparable<T>> {
 	public DNode<T> find(T data) {
 		DNode<T> curr = head;
 		
-		for (; curr != null && curr.data.compareTo(data) < 0;
+		if (head == null)
+			return null;
+		
+		for (; curr.next != null && curr.data.compareTo(data) < 0;
 				curr = curr.next);
 		
 		if (curr.data.compareTo(data) != 0) 
