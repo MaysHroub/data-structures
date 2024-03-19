@@ -33,6 +33,33 @@ public class DoublyLinkedList<T extends Comparable<T>> {
 		}
 	}
 	
+	public void recursiveInsert(T data) {
+		recursiveInsert(data, head);
+	}
+	
+	private void recursiveInsert(T data, DNode<T> curr) {
+		if (curr.next != null && curr.data.compareTo(data) < 0) {
+			recursiveInsert(data, curr.next);
+			return;
+		}
+		DNode<T> newNode = new DNode<>(data);
+		if (curr == head && curr.data.compareTo(data) > 0) { // insert first
+			newNode.next = head;
+			head.prev = newNode;
+			head = newNode;
+		}
+		else if (curr.next == null) { // insert last
+			newNode.prev = curr;
+			curr.next = newNode;
+		}
+		else { // insert between
+			newNode.next = curr;
+			newNode.prev = curr.prev;
+			curr.prev.next = newNode;
+			curr.prev = newNode;
+		}
+	}
+	
 	
 	public DNode<T> delete(T data) {
 		DNode<T> curr = head;
@@ -45,7 +72,7 @@ public class DoublyLinkedList<T extends Comparable<T>> {
 		if (curr == head) 
 			head = curr.next;
 		else if (curr.next == null)
-			curr.prev = null;
+			curr.prev.next = null;
 		else {
 			curr.next.prev = curr.prev;
 			curr.prev.next = curr.next;
