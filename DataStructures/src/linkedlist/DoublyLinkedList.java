@@ -102,6 +102,18 @@ public class DoublyLinkedList<T extends Comparable<T>> {
 		return curr;
 	}
 	
+	public DNode<T> recursiveFind(T data) {
+		return recursiveFind(data, head);
+	}
+	
+	private DNode<T> recursiveFind(T data, DNode<T> curr) {
+		if (curr == null) return null;
+		else if (curr.next == null || curr.data.compareTo(data) >= 0) 
+			if (curr.data.compareTo(data) == 0) 
+				return curr;
+		return recursiveFind(data, curr.next);
+	}
+	
 	
 	public void traverse() {
 		DNode<T> curr = head;
