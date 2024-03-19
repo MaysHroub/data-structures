@@ -2,7 +2,7 @@ package testing;
 
 import linkedlist.DoublyLinkedList;
 
-public class TestDDL {
+public class TestDLL {
 
 	public static void main(String[] args) {
 		DoublyLinkedList<Integer> dll = new DoublyLinkedList<>();
