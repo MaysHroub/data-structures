@@ -1,7 +1,5 @@
 package linkedlist;
 
-import javax.lang.model.element.Element;
-
 public class DoublyLinkedList<T extends Comparable<T>> {
 	
 	DNode<T> head;
