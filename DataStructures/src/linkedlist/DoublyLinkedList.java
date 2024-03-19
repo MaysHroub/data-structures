@@ -63,6 +63,10 @@ public class DoublyLinkedList<T extends Comparable<T>> {
 	
 	public DNode<T> delete(T data) {
 		DNode<T> curr = head;
+		
+		if (head == null)
+			return null;
+		
 		for (; curr.next != null && curr.data.compareTo(data) < 0;
 				curr = curr.next);
 		
@@ -77,6 +81,22 @@ public class DoublyLinkedList<T extends Comparable<T>> {
 			curr.next.prev = curr.prev;
 			curr.prev.next = curr.next;
 		}
+		return curr;
+	}
+	
+	
+	public DNode<T> find(T data) {
+		DNode<T> curr = head;
+		
+		if (head == null)
+			return null;
+		
+		for (; curr.next != null && curr.data.compareTo(data) < 0;
+				curr = curr.next);
+		
+		if (curr.data.compareTo(data) != 0) 
+			return null;
+			
 		return curr;
 	}
 	
