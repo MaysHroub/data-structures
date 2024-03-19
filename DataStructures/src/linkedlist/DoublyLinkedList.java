@@ -148,6 +148,11 @@ public class DoublyLinkedList<T extends Comparable<T>> {
 		}
 	}
 	
+	public void recursiveRemoveDuplicates() {
+		if (head != null)
+			recursiveRemoveDuplicates(head, head.next);
+	}
+	
 	private void recursiveRemoveDuplicates(DNode<T> curr, DNode<T> itr) {
 		if (curr == null) 
 			return;
