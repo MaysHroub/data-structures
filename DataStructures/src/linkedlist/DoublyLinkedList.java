@@ -1,5 +1,7 @@
 package linkedlist;
 
+import javax.lang.model.element.Element;
+
 public class DoublyLinkedList<T extends Comparable<T>> {
 	
 	DNode<T> head;
@@ -38,29 +40,27 @@ public class DoublyLinkedList<T extends Comparable<T>> {
 	}
 	
 	private void recursiveInsert(T data, DNode<T> curr) {
-		if (curr != null && curr.next != null && curr.data.compareTo(data) < 0) {
+		if (curr != null && curr.next != null && curr.data.compareTo(data) < 0)
 			recursiveInsert(data, curr.next);
-			return;
-		}
-		DNode<T> newNode = new DNode<>(data);
-		if (curr == null) {
-			head = newNode;
-			return;
-		}
-		else if (curr == head && curr.data.compareTo(data) >= 0) { // insert first
-			newNode.next = head;
-			head.prev = newNode;
-			head = newNode;
-		}
-		else if (curr.next == null) { // insert last
-			newNode.prev = curr;
-			curr.next = newNode;
-		}
-		else { // insert between
-			newNode.next = curr;
-			newNode.prev = curr.prev;
-			curr.prev.next = newNode;
-			curr.prev = newNode;
+		else {
+			DNode<T> newNode = new DNode<>(data);
+			if (head == null) 
+				head = newNode;
+			else if (curr == head && curr.data.compareTo(data) >= 0) { // insert first
+				newNode.next = head;
+				head.prev = newNode;
+				head = newNode;
+			}
+			else if (curr.next == null && curr.data.compareTo(data) < 0) { // insert last
+				newNode.prev = curr;
+				curr.next = newNode;
+			}
+			else { // insert between
+				newNode.next = curr;
+				newNode.prev = curr.prev;
+				curr.prev.next = newNode;
+				curr.prev = newNode;
+			}
 		}
 	}
 	
