@@ -55,6 +55,15 @@ public class TestDDL {
 //		System.out.println(dll.find(40));
 //		System.out.println(dll.find(99));
 //		System.out.println(dll.find(60));
+		
+		// -------------- search for existing data recursively
+		System.out.println(dll.recursiveFind(50));
+		System.out.println(dll.recursiveFind(90));
+		System.out.println(dll.recursiveFind(55));
+		// -------------- search for non-existing data recursively
+		System.out.println(dll.recursiveFind(44));
+		System.out.println(dll.recursiveFind(98));
+		System.out.println(dll.recursiveFind(66));
 	}
 
 }
