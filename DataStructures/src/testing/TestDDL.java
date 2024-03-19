@@ -35,6 +35,7 @@ public class TestDDL {
 		dll.recursiveInsert(99);
 		dll.recursiveInsert(40);
 		dll.traverse();
+		dll.backwardReverse();
 		
 		System.out.println(dll.recursiveLength());
 
