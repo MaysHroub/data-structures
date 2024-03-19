@@ -159,5 +159,19 @@ public class DoublyLinkedList<T extends Comparable<T>> {
 		}
 		System.out.println("Null");
 	}
+	
+	public void backwardReverse() {
+		DNode<T> curr = head;
+		
+		while (curr != null || curr.next != null) 
+			curr = curr.next;
+		
+		System.out.print("Tail --> ");
+		while (curr != null) {
+			System.out.print(curr + " --> ");
+			curr = curr.prev;
+		}
+		System.out.println("Null");
+	}
 
 }
