@@ -34,11 +34,6 @@ public class DoublyLinkedList<T extends Comparable<T>> {
 	}
 	
 	public void recursiveInsert(T data) {
-//		DNode<T> newNode = new DNode<>(data);
-//		if (head == null) {
-//			head = newNode;
-//			return;
-//		}
 		recursiveInsert(data, head);
 	}
 	
