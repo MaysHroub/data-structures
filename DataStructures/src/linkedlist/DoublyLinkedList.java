@@ -115,6 +115,17 @@ public class DoublyLinkedList<T extends Comparable<T>> {
 	}
 	
 	
+	public int length() {
+		DNode<T> curr = head;
+		int count = 0;
+		while (curr != null) {
+			count++;
+			curr = curr.next;
+		}
+		return count;
+	}
+	
+	
 	public void traverse() {
 		DNode<T> curr = head;
 		System.out.print("Head --> ");
