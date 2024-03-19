@@ -50,6 +50,19 @@ public class TestDDL {
 //		dll.delete(101);
 //		dll.delete(57);
 //		dll.traverse();
+		
+		// -------------- delete existing data recursively
+		dll.recursiveDelete(40);
+		dll.traverse();
+		dll.recursiveDelete(99);
+		dll.traverse();
+		dll.recursiveDelete(60);
+		dll.traverse();
+		// -------------- delete non-existing data recursively
+		dll.recursiveDelete(44);
+		dll.recursiveDelete(101);
+		dll.recursiveDelete(57);
+		dll.traverse();
 
 		// -------------- search for existing data
 //		System.out.println(dll.find(50));
