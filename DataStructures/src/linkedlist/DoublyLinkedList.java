@@ -129,6 +129,24 @@ public class DoublyLinkedList<T extends Comparable<T>> {
 				return curr;
 		return recursiveFind(data, curr.next);
 	}
+	
+	public void removeDuplicates() {
+		DNode<T> curr = head;
+		if (curr == null) return;
+		DNode<T> itr = curr.next;
+		while (itr != null) {
+			if (itr.data == curr.data) {
+				itr = itr.next;
+				if (itr == null)
+					curr.next = itr;
+			} else {
+				curr.next = itr;
+				itr.prev = curr;
+				curr = itr;
+				itr = itr.next;
+			}
+		}
+	}
 
 	public int length() {
 		DNode<T> curr = head;
