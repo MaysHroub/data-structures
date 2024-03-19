@@ -63,8 +63,8 @@ public class DoublyLinkedList<T extends Comparable<T>> {
 		if (head == null)
 			return null;
 
-		for (; curr.next != null && curr.data.compareTo(data) < 0; curr = curr.next)
-			;
+		for (; curr.next != null && curr.data.compareTo(data) < 0; 
+				curr = curr.next);
 
 		if (curr.data.compareTo(data) != 0)
 			return null;
@@ -78,6 +78,28 @@ public class DoublyLinkedList<T extends Comparable<T>> {
 			curr.prev.next = curr.next;
 		}
 		return curr;
+	}
+	
+	public DNode<T> recursiveDelete(T data) {
+		return recursiveDelete(data, head);
+	}
+	
+	private DNode<T> recursiveDelete(T data, DNode<T> curr) {
+		if (curr == null) return null;
+		else if (curr.next == null || curr.data.compareTo(data) >= 0) {
+			if (curr.data.compareTo(data) != 0)
+				return null;
+			if (curr == head)
+				head = curr.next;
+			else if (curr.next == null)
+				curr.prev.next = null;
+			else {
+				curr.next.prev = curr.prev;
+				curr.prev.next = curr.next;
+			}
+			return curr;
+		}
+		return recursiveDelete(data, curr.next);
 	}
 
 	public DNode<T> find(T data) {
