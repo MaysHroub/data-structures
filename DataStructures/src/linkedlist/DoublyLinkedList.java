@@ -147,6 +147,21 @@ public class DoublyLinkedList<T extends Comparable<T>> {
 			}
 		}
 	}
+	
+	private void recursiveRemoveDuplicates(DNode<T> curr, DNode<T> itr) {
+		if (curr == null) 
+			return;
+		else if (itr == null) {
+			curr.next = itr;
+			return;
+		} else if (itr.data == curr.data) 
+			recursiveRemoveDuplicates(curr, itr.next);
+		else {
+			curr.next = itr;
+			itr.prev = curr;
+			recursiveRemoveDuplicates(itr, itr.next);
+		}
+	}
 
 	public int length() {
 		DNode<T> curr = head;
