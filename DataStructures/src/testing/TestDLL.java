@@ -37,7 +37,8 @@ public class TestDLL {
 		dll.recursiveInsert(60);
 		dll.recursiveInsert(50);
 		dll.recursiveInsert(60);
-		dll.removeDuplicates();
+		dll.traverse();
+		dll.recursiveRemoveDuplicates();
 		dll.traverse();
 //		dll.recursiveTraverse();
 		
