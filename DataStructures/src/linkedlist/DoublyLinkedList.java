@@ -1,7 +1,5 @@
 package linkedlist;
 
-import java.util.Currency;
-
 public class DoublyLinkedList<T extends Comparable<T>> {
 
 	DNode<T> head;
