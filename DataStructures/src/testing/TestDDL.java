@@ -7,8 +7,8 @@ public class TestDDL {
 	public static void main(String[] args) {
 		DoublyLinkedList<Integer> dll = new DoublyLinkedList<>();
 
-		dll.delete(29);
-		System.out.println(dll.find(55));
+		dll.recursiveDelete(29);
+		System.out.println(dll.recursiveFind(55));
 
 		// -------------- insert new data
 //		dll.insert(50);
