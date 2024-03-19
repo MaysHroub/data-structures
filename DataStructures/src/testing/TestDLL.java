@@ -29,9 +29,13 @@ public class TestDLL {
 		
 		// -------------- insert new data
 //		dll.recursiveTraverse();
+		dll.recursiveRemoveDuplicates();
 		dll.recursiveInsert(55);
+		dll.recursiveRemoveDuplicates();
 		dll.recursiveInsert(50);
+		dll.recursiveRemoveDuplicates();
 		dll.recursiveInsert(90);
+		dll.recursiveRemoveDuplicates();
 		dll.recursiveInsert(90);
 		dll.recursiveInsert(50);
 		dll.recursiveInsert(60);
