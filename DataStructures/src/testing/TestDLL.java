@@ -7,8 +7,8 @@ public class TestDLL {
 	public static void main(String[] args) {
 		DoublyLinkedList<Integer> dll = new DoublyLinkedList<>();
 
-		dll.recursiveDelete(29);
-		System.out.println(dll.recursiveFind(55));
+//		dll.recursiveDelete(29);
+//		System.out.println(dll.recursiveFind(55));
 
 		// -------------- insert new data
 //		dll.insert(50);
@@ -25,18 +25,21 @@ public class TestDLL {
 //		dll.insert(55); // insert between
 //		dll.traverse();
 
-		System.out.println(dll.recursiveLength());
+//		System.out.println(dll.recursiveLength());
 		
 		// -------------- insert new data
-		dll.recursiveTraverse();
+//		dll.recursiveTraverse();
 		dll.recursiveInsert(55);
 		dll.recursiveInsert(50);
 		dll.recursiveInsert(90);
+		dll.recursiveInsert(90);
+		dll.recursiveInsert(50);
 		dll.recursiveInsert(60);
-		dll.recursiveInsert(99);
-		dll.recursiveInsert(40);
+		dll.recursiveInsert(50);
+		dll.recursiveInsert(60);
+		dll.removeDuplicates();
 		dll.traverse();
-		dll.recursiveTraverse();
+//		dll.recursiveTraverse();
 		
 		System.out.println(dll.recursiveLength());
 
