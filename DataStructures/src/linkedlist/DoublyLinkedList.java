@@ -163,7 +163,7 @@ public class DoublyLinkedList<T extends Comparable<T>> {
 	public void backwardReverse() {
 		DNode<T> curr = head;
 		
-		while (curr != null || curr.next != null) 
+		while (curr != null && curr.next != null) 
 			curr = curr.next;
 		
 		System.out.print("Tail --> ");
