@@ -167,6 +167,19 @@ public class DoublyLinkedList<T extends Comparable<T>> {
 			recursiveRemoveDuplicates(itr, itr.next);
 		}
 	}
+	
+	public void reverse() {
+		DNode<T> curr = head;
+		while (curr != null && curr.next != null) {
+			DNode<T> temp = curr.next;
+			curr.next = temp.next;
+			head.prev = temp;
+			temp.next = head;
+			temp.prev = null;
+			head = head.prev;
+			temp = curr.next;
+		}
+	}
 
 	public int length() {
 		DNode<T> curr = head;
