@@ -160,6 +160,18 @@ public class DoublyLinkedList<T extends Comparable<T>> {
 		System.out.println("Null");
 	}
 	
+	public void recursiveTraverse() {
+		System.out.print("Head --> ");
+		recursiveTraverse(head);
+		System.out.println("Null");
+	}
+	
+	private void recursiveTraverse(DNode<T> curr) {
+		if (curr == null) return;
+		System.out.print(curr + " --> ");
+		recursiveTraverse(curr.next);
+	}
+
 	public void backwardReverse() {
 		DNode<T> curr = head;
 		
