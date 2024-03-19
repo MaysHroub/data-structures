@@ -28,7 +28,7 @@ public class TestDLL {
 		System.out.println(dll.recursiveLength());
 		
 		// -------------- insert new data
-		dll.recursiveBackwardReverse();
+		dll.recursiveTraverse();
 		dll.recursiveInsert(55);
 		dll.recursiveInsert(50);
 		dll.recursiveInsert(90);
@@ -36,7 +36,7 @@ public class TestDLL {
 		dll.recursiveInsert(99);
 		dll.recursiveInsert(40);
 		dll.traverse();
-		dll.recursiveBackwardReverse();
+		dll.recursiveTraverse();
 		
 		System.out.println(dll.recursiveLength());
 
