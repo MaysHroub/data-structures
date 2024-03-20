@@ -12,8 +12,7 @@ public class DoublyLinkedList<T extends Comparable<T>> {
 		}
 
 		DNode<T> curr = head;
-		for (; curr.next != null && curr.data.compareTo(data) < 0; curr = curr.next)
-			;
+		for (; curr.next != null && curr.data.compareTo(data) < 0; curr = curr.next);
 
 		if (curr == head && curr.data.compareTo(data) >= 0) { // insert first
 			newNode.next = head;
@@ -108,8 +107,7 @@ public class DoublyLinkedList<T extends Comparable<T>> {
 		if (head == null)
 			return null;
 
-		for (; curr.next != null && curr.data.compareTo(data) < 0; curr = curr.next)
-			;
+		for (; curr.next != null && curr.data.compareTo(data) < 0; curr = curr.next);
 
 		if (curr.data.compareTo(data) != 0)
 			return null;
