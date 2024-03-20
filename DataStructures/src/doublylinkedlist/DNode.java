@@ -1,4 +1,4 @@
-package linkedlist;
+package doublylinkedlist;
 
 public class DNode<T extends Comparable<T>> {
 	

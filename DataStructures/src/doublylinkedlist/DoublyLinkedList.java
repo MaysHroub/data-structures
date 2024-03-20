@@ -1,4 +1,4 @@
-package linkedlist;
+package doublylinkedlist;
 
 public class DoublyLinkedList<T extends Comparable<T>> {
 
