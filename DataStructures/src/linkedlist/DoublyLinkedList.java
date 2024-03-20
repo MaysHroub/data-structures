@@ -180,6 +180,22 @@ public class DoublyLinkedList<T extends Comparable<T>> {
 			temp = curr.next;
 		}
 	}
+	
+	public void recursiveReverse() {
+		recursiveReverse(head);
+	}
+	
+	private void recursiveReverse(DNode<T> curr) {
+		if (curr == null || curr.next == null) return;
+		DNode<T> temp = curr.next;
+		curr.next = temp.next;
+		head.prev = temp;
+		temp.next = head;
+		temp.prev = null;
+		head = head.prev;
+		temp = curr.next;
+		recursiveReverse(curr);
+	}
 
 	public int length() {
 		DNode<T> curr = head;
