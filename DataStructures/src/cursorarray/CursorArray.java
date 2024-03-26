@@ -92,6 +92,16 @@ public class CursorArray<T extends Comparable<T>> {
 		return -1;
 	}
 	
+	public int findPrevious(T data, int l) {
+		while (!isLast(l)) {
+			int prev = l;
+			l = arr[l].next;
+			if (arr[l].data.equals(data))
+				return prev;
+		}
+		return -1;
+	}
+	
 	public void traverse(int l) {
 		System.out.print("Head --> ");
 		while (!isLast(l)) {
