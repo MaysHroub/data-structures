@@ -54,6 +54,17 @@ public class CursorArray<T extends Comparable<T>> {
 		arr[l].next = p;
 	}
 	
+	public void insertAtTail(T data, int l) {
+		int p = malloc();
+		if (p == 0) {
+			System.out.println("Out of space");
+			return;
+		}
+		for (; !isLast(l); l = arr[l].next);
+		arr[p].data = data;
+		arr[p].next = arr[l].next; // arr[p].next = 0
+		arr[l].next = p;
+	}
 	
 	
 }
