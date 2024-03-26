@@ -26,4 +26,13 @@ public class CursorArray<T extends Comparable<T>> {
 		arr[0].next = p;
 	}
 	
+	public int createList() {
+		int l = malloc();
+		if (l == 0) 
+			System.out.println("Out of space");
+		else 
+			arr[l].next = 0;
+		return l;
+	}
+	
 }
