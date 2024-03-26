@@ -35,6 +35,10 @@ public class CursorArray<T extends Comparable<T>> {
 		return l;
 	}
 	
+	public boolean isLast(int p) {
+		return arr[p].next == 0;
+	}
+	
 	public void insertAtHead(T data, int l) {
 		int p = malloc();
 		if (p == 0) {
@@ -45,5 +49,7 @@ public class CursorArray<T extends Comparable<T>> {
 		arr[p].next = arr[l].next;
 		arr[l].next = p;
 	}
+	
+	
 	
 }
