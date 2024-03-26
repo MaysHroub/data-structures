@@ -66,17 +66,25 @@ public class CursorArray<T extends Comparable<T>> {
 		arr[l].next = p;
 	}
 	
+	public CNode deleteFromHead(int l) {
+		if (isEmpty(l)) return null;
+		int p = arr[l].next;
+		arr[l].next = arr[p].next;
+		free(p);
+		return arr[p];
+	}
+	
 	public void traverse(int l) {
 		if (l == 0) {
 			System.out.println("No such list");
 			return;
 		}
-		System.out.print("Head -> ");
+		System.out.print("Head --> ");
 		while (!isLast(l)) {
-			System.out.print(arr[l] + " -> ");
+			System.out.print(arr[l] + " --> ");
 			l = arr[l].next;
 		}
-		System.out.print(arr[l] + " -> ");
+		System.out.print(arr[l] + " --> ");
 		System.out.println("Null");
 	}
 	
