@@ -15,5 +15,10 @@ public class CursorArray<T extends Comparable<T>> {
 		arr[arr.length - 1] = new CNode<>(null, 0);
 	}
 	
+	public int malloc() {
+		int p = arr[0].next;
+		arr[0].next = arr[p].next;
+		return p;
+	}
 	
 }
