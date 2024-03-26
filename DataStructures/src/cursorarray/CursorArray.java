@@ -74,6 +74,15 @@ public class CursorArray<T extends Comparable<T>> {
 		return arr[p];
 	}
 	
+	public CNode deleteFromTail(int l) {
+		if (isEmpty(l)) return null;
+		int prev = l;
+		for (; !isLast(l); prev = l, l = arr[l].next);
+		arr[prev].next = 0;
+		free(l);
+		return arr[l];
+	}
+	
 	public void traverse(int l) {
 		if (l == 0) {
 			System.out.println("No such list");
