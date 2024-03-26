@@ -71,11 +71,12 @@ public class CursorArray<T extends Comparable<T>> {
 			System.out.println("No such list");
 			return;
 		}
-		System.out.println("Head -> ");
-		while (!isLast(arr[l].next)) {
-			System.out.println(arr[l] + " -> ");
+		System.out.print("Head -> ");
+		while (!isLast(l)) {
+			System.out.print(arr[l] + " -> ");
 			l = arr[l].next;
 		}
+		System.out.print(arr[l] + " -> ");
 		System.out.println("Null");
 	}
 	
