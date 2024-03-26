@@ -66,5 +66,17 @@ public class CursorArray<T extends Comparable<T>> {
 		arr[l].next = p;
 	}
 	
+	public void traverse(int l) {
+		if (l == 0) {
+			System.out.println("No such list");
+			return;
+		}
+		System.out.println("Head -> ");
+		while (!isLast(arr[l].next)) {
+			System.out.println(arr[l] + " -> ");
+			l = arr[l].next;
+		}
+		System.out.println("Null");
+	}
 	
 }
