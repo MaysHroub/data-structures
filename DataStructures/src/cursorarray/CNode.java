@@ -14,4 +14,9 @@ public class CNode<T extends Comparable<T>> {
 		this.next = next;
 	}
 	
+	@Override
+	public String toString() {
+		return "[" + data + " |" + next + "]";
+	}
+	
 }
