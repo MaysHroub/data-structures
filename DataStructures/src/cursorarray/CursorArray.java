@@ -6,6 +6,7 @@ public class CursorArray<T extends Comparable<T>> {
 	
 	public CursorArray(int size) {
 		arr = new CNode[size];
+		init();
 	}
 	
 	private void init() {
