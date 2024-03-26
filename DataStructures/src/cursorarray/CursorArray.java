@@ -95,10 +95,9 @@ public class CursorArray<T extends Comparable<T>> {
 	public void traverse(int l) {
 		System.out.print("Head --> ");
 		while (!isLast(l)) {
-			System.out.print(arr[l] + " --> ");
 			l = arr[l].next;
+			System.out.print(arr[l] + " --> ");
 		}
-		System.out.print(arr[l] + " --> ");
 		System.out.println("Null");
 	}
 	
