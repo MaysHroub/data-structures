@@ -21,4 +21,9 @@ public class CursorArray<T extends Comparable<T>> {
 		return p;
 	}
 	
+	public void free(int p) {
+		arr[p].next = arr[0].next;
+		arr[0].next = p;
+	}
+	
 }
