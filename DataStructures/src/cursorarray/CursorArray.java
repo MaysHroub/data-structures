@@ -111,4 +111,13 @@ public class CursorArray<T extends Comparable<T>> {
 		System.out.println("Null");
 	}
 	
+	public int length(int l) {
+		int c = 0;
+		while (!isLast(l)) {
+			c++;
+			l = arr[l].next;
+		}
+		return c;
+	}
+	
 }
