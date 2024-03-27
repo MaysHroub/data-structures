@@ -159,7 +159,7 @@ public class CursorArray<T extends Comparable<T>> {
 			if (arr[arr[l].next].data.equals(data))
 				return l;
 			else
-				return recursiveFind(data, arr[l].next);
+				return recursiveFindPrevious(data, arr[l].next);
 		return -1;
 	}
 	
