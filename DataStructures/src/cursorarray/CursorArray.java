@@ -78,6 +78,25 @@ public class CursorArray<T extends Comparable<T>> {
 		arr[l].next = p;
 	}
 	
+	public void recursiveInsertAtTail(T data, int l) {
+		int p = malloc();
+		if (p == 0) {
+			System.out.println("Out of space");
+			return;
+		}
+		recursiveInsertAtTail(data, l, p);
+	}
+	
+	private void recursiveInsertAtTail(T data, int l, int p) {
+		if (isLast(l)) {
+			arr[p].data = data;
+			arr[p].next = arr[l].next; // arr[p].next = 0
+			arr[l].next = p;
+			return;
+		}
+		recursiveInsertAtTail(data, arr[l].next, p);
+	}
+	
 	public CNode deleteFromHead(int l) {
 		if (isEmpty(l)) return null;
 		int p = arr[l].next;
