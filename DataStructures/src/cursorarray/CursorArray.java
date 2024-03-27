@@ -137,13 +137,13 @@ public class CursorArray<T extends Comparable<T>> {
 	}
 	
 	public int recursiveFind(T data, int l) {
-		if (isLast(l)) {
-			if (arr[l].data.equals(data))
-				return l;
-			else return -1;
+		if (!isLast(l)) {
+			if (arr[arr[l].next].data.equals(data))
+				return arr[l].next;
+			else
+				return recursiveFind(data, arr[l].next);
 		}
-		else if (arr[l].data.equals(data)) return l;
-		return recursiveFind(data, arr[l].next);
+		return -1;
 	}
 	
 	public int findPrevious(T data, int l) {
