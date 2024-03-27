@@ -191,6 +191,11 @@ public class CursorArray<T extends Comparable<T>> {
 		return c;
 	}
 	
+	public int recursiveLength(int l) {
+		if (isLast(l)) return 0;
+		return 1 + recursiveLength(arr[l].next);
+	}
+	
 	public void removeList(int l) {
 		while (l != 0) {
 			int next = arr[l].next;
