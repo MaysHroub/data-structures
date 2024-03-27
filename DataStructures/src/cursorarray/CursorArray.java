@@ -15,6 +15,18 @@ public class CursorArray<T extends Comparable<T>> {
 		arr[arr.length - 1] = new CNode<>(null, 0);
 	}
 	
+	private void recursiveInit() {
+		recursiveInit(0, arr.length);
+	}
+	
+	private void recursiveInit(int i, int length) {
+		if (i == length - 1) arr[i] = new CNode<>(null, 0);
+		else {
+			arr[i] = new CNode<>(null, i + 1);
+			recursiveInit(i+1, length);
+		}
+	}
+	
 	public int malloc() {
 		int p = arr[0].next;
 		arr[0].next = arr[p].next;
