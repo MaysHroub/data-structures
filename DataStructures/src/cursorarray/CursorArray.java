@@ -114,6 +114,19 @@ public class CursorArray<T extends Comparable<T>> {
 		return arr[l];
 	}
 	
+	public CNode recursiveDeleteFromTail(int l) {
+		return recursiveDeleteFromTail(l, l);
+	}
+	
+	private CNode recursiveDeleteFromTail(int l, int prev) {
+		if (isLast(l)) {
+			arr[prev].next = 0;
+			free(l);
+			return arr[l];			
+		}
+		return recursiveDeleteFromTail(arr[l].next, l);
+	}
+	
 	public int find(T data, int l) {
 		while (!isLast(l)) {
 			l = arr[l].next;
