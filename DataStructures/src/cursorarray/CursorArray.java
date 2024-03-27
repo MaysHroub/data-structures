@@ -169,6 +169,19 @@ public class CursorArray<T extends Comparable<T>> {
 		System.out.println("Null");
 	}
 	
+	public void recursiveTraverse(int l) {
+		System.out.print("Head --> ");
+		helperRecursiveTraverse(l);
+		System.out.println("Null");
+	}
+	
+	private void helperRecursiveTraverse(int l) {
+		if (!isLast(l)) {
+			System.out.print(arr[arr[l].next] + " --> ");
+			helperRecursiveTraverse(arr[l].next);
+		}
+	}
+
 	public int length(int l) {
 		int c = 0;
 		while (!isLast(l)) {
