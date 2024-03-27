@@ -146,9 +146,11 @@ public class CursorArray<T extends Comparable<T>> {
 	}
 	
 	public int findPrevious(T data, int l) {
-		while (!isLast(l)) 
+		while (!isLast(l)) {
 			if (arr[arr[l].next].data.equals(data))
 				return l;
+			l = arr[l].next;
+		}
 		return -1;
 	}
 	
