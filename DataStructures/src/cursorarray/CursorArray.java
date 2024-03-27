@@ -121,10 +121,10 @@ public class CursorArray<T extends Comparable<T>> {
 	}
 	
 	public void removeList(int l) {
-		while (!isEmpty(l)) {
-			int p = arr[l].next;
+		while (l != 0) {
+			int next = arr[l].next;
 			free(l);
-			l = p;
+			l = next;
 		}
 	}
 	
