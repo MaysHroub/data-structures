@@ -204,4 +204,11 @@ public class CursorArray<T extends Comparable<T>> {
 		}
 	}
 	
+	public void recursiveRemoveList(int l) {
+		if (l != 0) {
+			recursiveRemoveList(arr[l].next);
+			free(l);
+		}
+	}
+	
 }
