@@ -1,9 +1,15 @@
 package stack;
 
+import java.lang.reflect.Array;
+
 public class ArrayStack<T> implements Stackable<T> {
 	
 	private T[] data;
 	
+	@SuppressWarnings("unchecked")
+	public ArrayStack(Class<T> clazz, int size) {
+		data = (T[]) Array.newInstance(clazz, size);
+	}
 
 	@Override
 	public void push(T data) {
