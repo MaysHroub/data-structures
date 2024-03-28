@@ -15,7 +15,7 @@ public class LinkedListStack<T> implements Stackable<T> {
 	@Override
 	public void push(T data) {
 		Node<T> newNode = new Node<>(data);
-		if (head == null)
+		if (isEmpty())
 			head = newNode;
 		else {
 			newNode.next = head;
@@ -31,8 +31,8 @@ public class LinkedListStack<T> implements Stackable<T> {
 
 	@Override
 	public T peek() {
-		// TODO Auto-generated method stub
-		return null;
+		if (isEmpty()) return null;
+		return head.data;
 	}
 
 	@Override
