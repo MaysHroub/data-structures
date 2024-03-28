@@ -26,8 +26,8 @@ public class ArrayStack<T> implements Stackable<T> {
 
 	@Override
 	public T peek() {
-		// TODO Auto-generated method stub
-		return null;
+		if (isEmpty()) return null;
+		return arr[top - 1];
 	}
 
 	@Override
