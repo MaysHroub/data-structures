@@ -5,6 +5,7 @@ import java.lang.reflect.Array;
 public class ArrayStack<T> implements Stackable<T> {
 	
 	private T[] data;
+	private int top;
 	
 	@SuppressWarnings("unchecked")
 	public ArrayStack(Class<T> clazz, int size) {
