@@ -1,7 +1,6 @@
 package stack;
 
 import java.lang.reflect.Array;
-import java.util.spi.ToolProvider;
 
 public class ArrayStack<T> implements Stackable<T> {
 	
