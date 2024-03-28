@@ -25,8 +25,10 @@ public class LinkedListStack<T> implements Stackable<T> {
 
 	@Override
 	public T pop() {
-		// TODO Auto-generated method stub
-		return null;
+		if (isEmpty()) return null;
+		T temp = head.data;
+		head = head.next;
+		return temp;
 	}
 
 	@Override
