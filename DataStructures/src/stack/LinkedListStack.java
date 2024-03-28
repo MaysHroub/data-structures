@@ -14,8 +14,13 @@ public class LinkedListStack<T> implements Stackable<T> {
 	
 	@Override
 	public void push(T data) {
-		// TODO Auto-generated method stub
-		
+		Node<T> newNode = new Node<>(data);
+		if (head == null)
+			head = newNode;
+		else {
+			newNode.next = head;
+			head = newNode;
+		}
 	}
 
 	@Override
