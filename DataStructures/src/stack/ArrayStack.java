@@ -1,6 +1,9 @@
 package stack;
 
-public class ArrayStack<T> implements Stackable<T>{
+public class ArrayStack<T> implements Stackable<T> {
+	
+	private T[] data;
+	
 
 	@Override
 	public void push(T data) {
