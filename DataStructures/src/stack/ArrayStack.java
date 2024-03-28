@@ -38,8 +38,7 @@ public class ArrayStack<T> implements Stackable<T> {
 
 	@Override
 	public void clear() {
-		// TODO Auto-generated method stub
-		
+		top = 0;
 	}
 	
 }
