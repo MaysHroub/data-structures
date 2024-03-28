@@ -1,6 +1,7 @@
 package stack;
 
 import java.lang.reflect.Array;
+import java.util.spi.ToolProvider;
 
 public class ArrayStack<T> implements Stackable<T> {
 	
@@ -32,8 +33,7 @@ public class ArrayStack<T> implements Stackable<T> {
 
 	@Override
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return false;
+		return top == 0;
 	}
 
 	@Override
