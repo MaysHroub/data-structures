@@ -10,6 +10,8 @@ public class LinkedListStack<T> implements Stackable<T> {
 		}
 	}
 	
+	private Node<T> head;
+	
 	@Override
 	public void push(T data) {
 		// TODO Auto-generated method stub
