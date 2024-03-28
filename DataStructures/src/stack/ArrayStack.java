@@ -4,12 +4,12 @@ import java.lang.reflect.Array;
 
 public class ArrayStack<T> implements Stackable<T> {
 	
-	private T[] data;
+	private T[] arr;
 	private int top;
 	
 	@SuppressWarnings("unchecked")
 	public ArrayStack(Class<T> clazz, int size) {
-		data = (T[]) Array.newInstance(clazz, size);
+		arr = (T[]) Array.newInstance(clazz, size);
 	}
 
 	@Override
