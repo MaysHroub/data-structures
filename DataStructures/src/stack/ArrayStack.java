@@ -20,8 +20,8 @@ public class ArrayStack<T> implements Stackable<T> {
 
 	@Override
 	public T pop() {
-		// TODO Auto-generated method stub
-		return null;
+		if (isEmpty()) return null; 
+		return arr[top--];
 	}
 
 	@Override
