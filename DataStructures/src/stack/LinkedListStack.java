@@ -2,6 +2,14 @@ package stack;
 
 public class LinkedListStack<T> implements Stackable<T> {
 
+	private class Node<T> {
+		T data;
+		Node<T> next;
+		Node(T data) {
+			this.data = data;
+		}
+	}
+	
 	@Override
 	public void push(T data) {
 		// TODO Auto-generated method stub
