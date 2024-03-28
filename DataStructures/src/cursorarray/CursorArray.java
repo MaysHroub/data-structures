@@ -55,6 +55,27 @@ public class CursorArray<T extends Comparable<T>> {
 		return arr[l].next == 0;
 	}
 	
+	public void insertSorted(T data, int l) {
+		int p = malloc();
+		if (p == 0) {
+			System.out.println("Out of space");
+			return;
+		}
+		arr[p].data = data;
+		int curr = l, prev = 0;
+		for (; curr != 0 && arr[curr].data.compareTo(data) < 0; prev = curr, curr = arr[curr].next);
+		if (prev == 0) {      // insert first
+			arr[p].next = arr[l].next;
+			arr[l].next = p;
+		} else if (curr == 0) {      // insert last
+			arr[p].next = arr[prev].next;  // = 0
+			arr[prev].next = p;
+		} else {      // insert between  
+			arr[p].next = curr;
+			arr[prev].next = p;
+		}
+	}
+	
 	public void insertAtHead(T data, int l) {
 		int p = malloc();
 		if (p == 0) {
