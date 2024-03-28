@@ -67,7 +67,7 @@ public class CursorArray<T extends Comparable<T>> {
 			arr[l].next = p;
 			return;
 		}
-		int curr = l, prev = 0;
+		int curr = arr[l].next, prev = 0;
 		for (; curr != 0 && arr[curr].data.compareTo(data) < 0; prev = curr, curr = arr[curr].next);
 		if (prev == 0) {      // insert first
 			arr[p].next = arr[l].next;
