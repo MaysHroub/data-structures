@@ -5,8 +5,17 @@ import cursorarray.CursorArray;
 public class TestCursorArr {
 
 	public static void main(String[] args) {
-		CursorArray<Integer> cursorArray = new CursorArray<>(11);
+		CursorArray<Integer> cursorArray = new CursorArray<>(21);
 		cursorArray.traverse(0);
+		
+		int sl = cursorArray.createList();
+		cursorArray.insertSorted(50, sl);
+		cursorArray.insertSorted(60, sl);
+		cursorArray.insertSorted(90, sl);
+		cursorArray.insertSorted(40, sl);
+		cursorArray.insertSorted(55, sl);
+		cursorArray.insertSorted(99, sl);
+		cursorArray.traverse(sl);
 		
 		int ml = cursorArray.createList();
 		cursorArray.insertAtHead(1, ml);
