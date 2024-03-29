@@ -140,6 +140,16 @@ public class CursorArray<T extends Comparable<T>> {
 		return arr[l];
 	}
 	
+	public CNode<T> delete(T data, int l) {
+		int prev = findPrevious(data, l);
+		if (prev == -1) return null;
+		int idxOfNodeToDelete = arr[prev].next;
+		CNode<T> nodeToDelete = arr[idxOfNodeToDelete];
+		arr[prev].next = nodeToDelete.next;
+		free(idxOfNodeToDelete);
+		return nodeToDelete;
+	}
+	
 	public CNode<T> recursiveDeleteFromTail(int l) {
 		return recursiveDeleteFromTail(l, l);
 	}
