@@ -5,7 +5,7 @@ import cursorarray.CursorArray;
 public class TestCursorArr {
 
 	public static void main(String[] args) {
-		CursorArray<Integer> cursorArray = new CursorArray<>(21);
+		CursorArray<Integer> cursorArray = new CursorArray<>(101);
 		cursorArray.traverse(0);
 		
 		int sl = cursorArray.createList();
@@ -19,30 +19,13 @@ public class TestCursorArr {
 		
 		int ml = cursorArray.createList();
 		cursorArray.insertAtHead(1, ml);
-		cursorArray.recursiveInsertAtTail(5, ml);
-		cursorArray.recursiveInsertAtTail(10, ml);
-		cursorArray.recursiveInsertAtTail(15, ml);
-		
+		cursorArray.recursiveInsertAtTail(65, ml);
+		cursorArray.recursiveInsertAtTail(97, ml);
+		cursorArray.recursiveInsertAtTail(150, ml);
 		cursorArray.recursiveTraverse(ml);
 		
-		System.out.println(cursorArray.recursiveLength(ml));
-		
-		System.out.println(cursorArray.recursiveDeleteFromTail(ml));
-		
-		cursorArray.recursiveTraverse(ml);
-		
-		System.out.println(cursorArray.recursiveFind(5, ml));
-		System.out.println(cursorArray.find(5, ml));
-		
-		System.out.println(cursorArray.findPrevious(10, ml));
-		System.out.println(cursorArray.recursiveFindPrevious(10, ml));
-		
-		System.out.println(cursorArray.length(ml));
-		System.out.println(cursorArray.recursiveLength(ml));
-		
-		System.out.println(cursorArray.recursiveLength(0));
-		cursorArray.recursiveRemoveList(ml);
-		System.out.println(cursorArray.recursiveLength(0));
+		int mergedl = cursorArray.merge(sl, ml);
+		cursorArray.traverse(mergedl);
 	}
 
 }
