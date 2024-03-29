@@ -1,7 +1,5 @@
 package cursorarray;
 
-import java.security.PublicKey;
-
 public class CursorArray<T extends Comparable<T>> {
 
 	private CNode<T>[] arr;
@@ -125,7 +123,7 @@ public class CursorArray<T extends Comparable<T>> {
 		recursiveInsertAtTail(data, arr[l].next, p);
 	}
 	
-	public CNode deleteFromHead(int l) {
+	public CNode<T> deleteFromHead(int l) {
 		if (isEmpty(l)) return null;
 		int p = arr[l].next;
 		arr[l].next = arr[p].next;
@@ -133,7 +131,7 @@ public class CursorArray<T extends Comparable<T>> {
 		return arr[p];
 	}
 	
-	public CNode deleteFromTail(int l) {
+	public CNode<T> deleteFromTail(int l) {
 		if (isEmpty(l)) return null;
 		int prev = l;
 		for (; !isLast(l); prev = l, l = arr[l].next);
@@ -142,11 +140,11 @@ public class CursorArray<T extends Comparable<T>> {
 		return arr[l];
 	}
 	
-	public CNode recursiveDeleteFromTail(int l) {
+	public CNode<T> recursiveDeleteFromTail(int l) {
 		return recursiveDeleteFromTail(l, l);
 	}
 	
-	private CNode recursiveDeleteFromTail(int l, int prev) {
+	private CNode<T> recursiveDeleteFromTail(int l, int prev) {
 		if (isLast(l)) {
 			arr[prev].next = 0;
 			free(l);
