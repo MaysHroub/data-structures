@@ -26,6 +26,23 @@ public class TestCursorArr {
 		
 		int mergedl = cursorArray.merge(sl, ml);
 		cursorArray.traverse(mergedl);
+		
+		cursorArray.mergeIntoFirstList(sl, ml);
+		cursorArray.traverse(sl);
+		
+		int l1 = cursorArray.createList();
+		cursorArray.insertSorted(1, l1);
+		cursorArray.insertSorted(3, l1);
+		cursorArray.insertSorted(7, l1);
+		
+		int l2 = cursorArray.createList();
+		cursorArray.insertSorted(0, l2);
+		cursorArray.insertSorted(2, l2);
+		cursorArray.insertSorted(4, l2);
+		cursorArray.insertSorted(5, l2);
+		
+		cursorArray.mergeIntoFirstList(l2, l1);
+		cursorArray.traverse(l2);
 	}
 
 }
