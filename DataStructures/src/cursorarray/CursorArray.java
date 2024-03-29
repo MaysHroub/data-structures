@@ -105,7 +105,7 @@ public class CursorArray<T extends Comparable<T>> {
 	}
 	
 	public void recursiveInsertAtTail(T data, int l) {
-		int p = malloc();
+		int p = malloc(); 
 		if (p == 0) {
 			System.out.println("Out of space");
 			return;
