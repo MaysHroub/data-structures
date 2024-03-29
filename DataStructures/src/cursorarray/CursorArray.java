@@ -262,21 +262,28 @@ public class CursorArray<T extends Comparable<T>> {
 		return resList;
 	}
 	
+	public void mergeIntoFirstList(int l1, int l2) {
+		int prev = l1;
+		l1 = arr[l1].next;
+		int temp = arr[l2].next;
+		free(l2);
+		l2 = temp;
+		while (l1 != 0 && prev != l1) 
+			if (l2 != 0 && arr[l2].data.compareTo(arr[l1].data) < 0) {
+				int nextL2 = arr[l2].next;
+				arr[prev].next = l2;
+				arr[l2].next = l1;
+				prev = l2;
+				l2 = nextL2;
+			} 
+			else {
+				prev = l1;
+				l1 = arr[l1].next;
+			}
+		
+		if (l2 != 0) 
+			arr[prev].next = l2;
+	}
+
+	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
