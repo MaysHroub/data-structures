@@ -200,7 +200,7 @@ public class CursorArray<T extends Comparable<T>> {
 	}
 	
 	public void traverse(int l) {
-		System.out.print("Head --> ");
+		System.out.print("Head [" + l + "] --> ");
 		while (!isLast(l)) {
 			l = arr[l].next;
 			System.out.print(arr[l] + " --> ");
@@ -209,7 +209,7 @@ public class CursorArray<T extends Comparable<T>> {
 	}
 	
 	public void recursiveTraverse(int l) {
-		System.out.print("Head --> ");
+		System.out.print("Head [" + l + "] --> ");
 		helperRecursiveTraverse(l);
 		System.out.println("Null");
 	}
