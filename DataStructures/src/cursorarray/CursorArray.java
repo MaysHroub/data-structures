@@ -299,4 +299,14 @@ public class CursorArray<T extends Comparable<T>> {
 		arr[arr.length - 1].next = 0;
 	}
 	
+	public String listToString(int l) {
+		String list = "Head [" + l + "] --> ";
+		while (!isLast(l)) {
+			l = arr[l].next;
+			list += arr[l] + " --> ";
+		}
+		list += "Null";
+		return list;
+	}
+	
 }
