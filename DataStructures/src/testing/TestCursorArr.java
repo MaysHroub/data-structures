@@ -43,6 +43,10 @@ public class TestCursorArr {
 		
 		cursorArray.mergeIntoFirstList(l2, l1);
 		cursorArray.traverse(l2);
+		
+		cursorArray.traverse(0);
+		cursorArray.clear();
+		cursorArray.traverse(0);
 	}
 
 }
