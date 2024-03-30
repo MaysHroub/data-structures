@@ -251,8 +251,9 @@ public class CursorArray<T extends Comparable<T>> {
 	}
 	
 	public int merge(int l1, int l2) {
+		if (length(0) < length(l1) + length(l2) + 1) 
+			return -1;
 		int resList = malloc();
-		if (resList == 0) return 0;
 		l1 = arr[l1].next; l2 = arr[l2].next;
 		while (l1 != 0) {
 			if (l2 != 0 && arr[l2].data.compareTo(arr[l1].data) < 0) {
