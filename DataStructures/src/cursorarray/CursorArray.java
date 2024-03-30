@@ -293,5 +293,10 @@ public class CursorArray<T extends Comparable<T>> {
 			arr[prev].next = l2;
 	}
 
+	public void clear() {
+		for (int i = 0; i < arr.length - 1; i++)
+			arr[i].next = i + 1;
+		arr[arr.length - 1].next = 0;
+	}
 	
 }
