@@ -1,5 +1,7 @@
 package trees;
 
+import javax.lang.model.element.Element;
+
 import stack.LinkedListStack;
 
 public class BinaryTree<T extends Comparable<T>> {
@@ -33,6 +35,17 @@ public class BinaryTree<T extends Comparable<T>> {
 				curr = nextNode.getRight();
 			}
 		}
+	}
+	
+	public void traversePreOrder() {
+		traversePreOrder(root);
+	}
+
+	private void traversePreOrder(TNode<T> curr) {
+		if (curr == null) return;
+		System.out.println(curr);
+		if (curr.hasLeft()) traversePreOrder(curr.getLeft());
+		else if (curr.hasRight()) traversePreOrder(curr.getRight());
 	}
 
 }
