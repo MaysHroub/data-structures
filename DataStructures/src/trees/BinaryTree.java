@@ -47,5 +47,16 @@ public class BinaryTree<T extends Comparable<T>> {
 		if (curr.hasLeft()) traversePreOrder(curr.getLeft());
 		else if (curr.hasRight()) traversePreOrder(curr.getRight());
 	}
+	
+	public void traversePpstOrder() {
+		traversePostOrder(root);
+	}
+
+	private void traversePostOrder(TNode<T> curr) {
+		if (curr == null) return;
+		if (curr.hasLeft()) traversePreOrder(curr.getLeft());
+		else if (curr.hasRight()) traversePreOrder(curr.getRight());
+		System.out.println(curr);
+	}
 
 }
