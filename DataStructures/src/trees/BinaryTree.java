@@ -1,7 +1,8 @@
 package trees;
 
-import javax.lang.model.element.Element;
 
+import queue_pack.LinkedListQueue;
+import queue_pack.SQueue;
 import stack.LinkedListStack;
 
 public class BinaryTree<T extends Comparable<T>> {
@@ -57,6 +58,18 @@ public class BinaryTree<T extends Comparable<T>> {
 		if (curr.hasLeft()) traversePreOrder(curr.getLeft());
 		else if (curr.hasRight()) traversePreOrder(curr.getRight());
 		System.out.println(curr);
+	}
+	
+	public void traverseLevelOrder() {
+		if (root == null) return;
+		LinkedListQueue<TNode<T>> queue = new LinkedListQueue<>();
+		queue.enqueue(root);
+		while (!queue.isEmpty()) {
+			TNode<T> curr = queue.dequeue();
+			System.out.println(curr);
+			if (curr.hasLeft()) queue.enqueue(curr.getLeft());
+			if (curr.hasRight()) queue.enqueue(curr.getRight());
+		}
 	}
 
 }
