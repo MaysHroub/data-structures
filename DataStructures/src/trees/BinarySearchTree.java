@@ -83,5 +83,15 @@ public class BinarySearchTree<T extends Comparable<T>> {
 		}
 		return null;
 	}
+	
+	public TNode<T> smallest() {
+		return smallest(root);
+	}
+
+	private TNode<T> smallest(TNode<T> curr) {
+		if (curr == null) return null;
+		if (curr.getLeft() == null) return curr;
+		return smallest(curr.getLeft());
+	}
 
 }
