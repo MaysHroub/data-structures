@@ -103,5 +103,37 @@ public class BinarySearchTree<T extends Comparable<T>> {
 		if (curr.getRight() == null) return curr;
 		return smallest(curr.getRight());
 	}
+	
+	public int height() {
+		return height(root);
+	}
+
+	private int height(TNode<T> curr) {
+		if (curr == null) return 0;
+		if (curr.isLeaf()) return 1;
+		return 1 + Math.max(height(curr.getLeft()), height(curr.getRight()));
+	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
