@@ -1,6 +1,6 @@
 package stack;
 
-public class LinkedListStack<T> implements Stackable<T> {
+public class LinkedListStack<T extends Comparable<T>> implements Stackable<T> {
 
 	private class Node<T> {
 		T data;

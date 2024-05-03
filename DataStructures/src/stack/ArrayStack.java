@@ -2,7 +2,7 @@ package stack;
 
 import java.lang.reflect.Array;
 
-public class ArrayStack<T> implements Stackable<T> {
+public class ArrayStack<T extends Comparable<T>> implements Stackable<T> {
 	
 	private T[] arr;
 	private int top;
