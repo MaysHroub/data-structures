@@ -1,28 +1,29 @@
 package doublylinkedlist;
 
+
 public class DoublyLinkedList<T extends Comparable<T>> {
 
-	DNode<T> head;
+	private DNode<T> head;
 
 	public void insert(T data) {
 		DNode<T> newNode = new DNode<>(data), curr = head;
 
-		for (; curr != null && curr.data.compareTo(data) < 0 && curr.next != null; curr = curr.next);
+		for (; curr != null && curr.getData().compareTo(data) < 0 && curr.getNext() != null; curr = curr.getNext());
 		
 		if (curr == null) // case 0: empty list
 			head = newNode;
-		else if (curr.data.compareTo(data) >= 0 && curr.prev == null) { // case 1: insert at first
-			newNode.next = curr;
-			curr.prev = newNode;
+		else if (curr.getData().compareTo(data) >= 0 && curr.getPrev() == null) { // case 1: insert at first
+			newNode.setNext(curr);
+			curr.setPrev(newNode);
 			head = newNode;
-		} else if (curr.data.compareTo(data) < 0 && curr.next == null) { // case 3: insert at last
-			newNode.prev = curr;
-			curr.next = newNode;
+		} else if (curr.getData().compareTo(data) < 0 && curr.getNext() == null) { // case 3: insert at last
+			newNode.setPrev(curr);
+			curr.setNext(newNode);
 		} else { // case 2: insert between
-			newNode.next = curr;
-			newNode.prev = curr.prev;
-			curr.prev.next = newNode;
-			curr.prev = newNode;
+			newNode.setNext(curr);
+			newNode.setPrev(curr.getPrev());
+			curr.getPrev().setNext(newNode);
+			curr.setPrev(newNode);
 		}
 	}
 
@@ -31,24 +32,24 @@ public class DoublyLinkedList<T extends Comparable<T>> {
 	}
 
 	private void recursiveInsert(T data, DNode<T> curr) {
-		if (curr != null && curr.next != null && curr.data.compareTo(data) < 0)
-			recursiveInsert(data, curr.next);
+		if (curr != null && curr.getNext() != null && curr.getData().compareTo(data) < 0)
+			recursiveInsert(data, curr.getNext());
 		else {
 			DNode<T> newNode = new DNode<>(data);
 			if (head == null)
 				head = newNode;
-			else if (curr == head && curr.data.compareTo(data) >= 0) { // insert first
-				newNode.next = head;
-				head.prev = newNode;
+			else if (curr == head && curr.getData().compareTo(data) >= 0) { // insert first
+				newNode.setNext(head);
+				head.setPrev(newNode);
 				head = newNode;
-			} else if (curr.next == null && curr.data.compareTo(data) < 0) { // insert last
-				newNode.prev = curr;
-				curr.next = newNode;
+			} else if (curr.getNext() == null && curr.getData().compareTo(data) < 0) { // insert last
+				newNode.setPrev(curr);
+				curr.setNext(newNode);
 			} else { // insert between
-				newNode.next = curr;
-				newNode.prev = curr.prev;
-				curr.prev.next = newNode;
-				curr.prev = newNode;
+				newNode.setNext(curr);
+				newNode.setPrev(curr.getPrev());
+				curr.getPrev().setNext(newNode);
+				curr.setPrev(newNode);
 			}
 		}
 	}
@@ -59,18 +60,19 @@ public class DoublyLinkedList<T extends Comparable<T>> {
 		if (head == null)
 			return null;
 
-		for (; curr.next != null && curr.data.compareTo(data) < 0; curr = curr.next);
+		for (; curr.getNext() != null && curr.getData().compareTo(data) < 0; curr = curr.getNext())
+			;
 
-		if (curr.data.compareTo(data) != 0)
+		if (curr.getData().compareTo(data) != 0)
 			return null;
 
 		if (curr == head)
-			head = curr.next;
-		else if (curr.next == null)
-			curr.prev.next = null;
+			head = curr.getNext();
+		else if (curr.getNext() == null)
+			curr.getPrev().setNext(null);
 		else {
-			curr.next.prev = curr.prev;
-			curr.prev.next = curr.next;
+			curr.getNext().setPrev(curr.getPrev());
+			curr.getPrev().setNext(curr.getNext());
 		}
 		return curr;
 	}
@@ -82,20 +84,20 @@ public class DoublyLinkedList<T extends Comparable<T>> {
 	private DNode<T> recursiveDelete(T data, DNode<T> curr) {
 		if (curr == null)
 			return null;
-		else if (curr.next == null || curr.data.compareTo(data) >= 0) {
-			if (curr.data.compareTo(data) != 0)
+		else if (curr.getNext() == null || curr.getData().compareTo(data) >= 0) {
+			if (curr.getData().compareTo(data) != 0)
 				return null;
 			if (curr == head)
-				head = curr.next;
-			else if (curr.next == null)
-				curr.prev.next = null;
+				head = curr.getNext();
+			else if (curr.getNext() == null)
+				curr.getPrev().setNext(null);
 			else {
-				curr.next.prev = curr.prev;
-				curr.prev.next = curr.next;
+				curr.getNext().setPrev(curr.getPrev());
+				curr.getPrev().setNext(curr.getNext());
 			}
 			return curr;
 		}
-		return recursiveDelete(data, curr.next);
+		return recursiveDelete(data, curr.getNext());
 	}
 
 	public DNode<T> find(T data) {
@@ -104,10 +106,9 @@ public class DoublyLinkedList<T extends Comparable<T>> {
 		if (head == null)
 			return null;
 
-		for (; curr.next != null && curr.data.compareTo(data) < 0; curr = curr.next)
-			;
+		for (; curr.getNext() != null && curr.getData().compareTo(data) < 0; curr = curr.getNext());
 
-		if (curr.data.compareTo(data) != 0)
+		if (curr.getData().compareTo(data) != 0)
 			return null;
 
 		return curr;
@@ -120,61 +121,61 @@ public class DoublyLinkedList<T extends Comparable<T>> {
 	private DNode<T> recursiveFind(T data, DNode<T> curr) {
 		if (curr == null)
 			return null;
-		else if (curr.next == null || curr.data.compareTo(data) >= 0)
-			if (curr.data.compareTo(data) == 0)
+		else if (curr.getNext() == null || curr.getData().compareTo(data) >= 0)
+			if (curr.getData().compareTo(data) == 0)
 				return curr;
-		return recursiveFind(data, curr.next);
+		return recursiveFind(data, curr.getNext());
 	}
 
 	public void removeDuplicates() {
 		DNode<T> curr = head;
 		if (curr == null)
 			return;
-		DNode<T> itr = curr.next;
+		DNode<T> itr = curr.getNext();
 		while (itr != null) {
-			if (itr.data == curr.data) {
-				itr = itr.next;
+			if (itr.getData() == curr.getData()) {
+				itr = itr.getNext();
 				if (itr == null)
-					curr.next = itr;
+					curr.setNext(itr);
 			} else {
-				curr.next = itr;
-				itr.prev = curr;
+				curr.setNext(itr);
+				itr.setPrev(curr);
 				curr = itr;
-				itr = itr.next;
+				itr = itr.getNext();
 			}
 		}
 	}
 
 	public void recursiveRemoveDuplicates() {
 		if (head != null)
-			recursiveRemoveDuplicates(head, head.next);
+			recursiveRemoveDuplicates(head, head.getNext());
 	}
 
 	private void recursiveRemoveDuplicates(DNode<T> curr, DNode<T> itr) {
 		if (curr == null)
 			return;
 		else if (itr == null) {
-			curr.next = itr;
+			curr.setNext(itr);
 			return;
-		} else if (itr.data == curr.data)
-			recursiveRemoveDuplicates(curr, itr.next);
+		} else if (itr.getData() == curr.getData())
+			recursiveRemoveDuplicates(curr, itr.getNext());
 		else {
-			curr.next = itr;
-			itr.prev = curr;
-			recursiveRemoveDuplicates(itr, itr.next);
+			curr.setNext(itr);
+			itr.setPrev(curr);
+			recursiveRemoveDuplicates(itr, itr.getNext());
 		}
 	}
 
 	public void reverse() {
 		DNode<T> curr = head;
-		while (curr != null && curr.next != null) {
-			DNode<T> temp = curr.next;
-			curr.next = temp.next;
-			head.prev = temp;
-			temp.next = head;
-			temp.prev = null;
-			head = head.prev;
-			temp = curr.next;
+		while (curr != null && curr.getNext() != null) {
+			DNode<T> temp = curr.getNext();
+			curr.setNext(temp.getNext());
+			head.setPrev(temp);
+			temp.setNext(head);
+			temp.setPrev(null);
+			head = head.getPrev();
+			temp = curr.getNext();
 		}
 	}
 
@@ -183,15 +184,15 @@ public class DoublyLinkedList<T extends Comparable<T>> {
 	}
 
 	private void recursiveReverse(DNode<T> curr) {
-		if (curr == null || curr.next == null)
+		if (curr == null || curr.getNext() == null)
 			return;
-		DNode<T> temp = curr.next;
-		curr.next = temp.next;
-		head.prev = temp;
-		temp.next = head;
-		temp.prev = null;
-		head = head.prev;
-		temp = curr.next;
+		DNode<T> temp = curr.getNext();
+		curr.setNext(temp.getNext());
+		head.setPrev(temp);
+		temp.setNext(head);
+		temp.setPrev(null);
+		head = head.getPrev();
+		temp = curr.getNext();
 		recursiveReverse(curr);
 	}
 
@@ -200,7 +201,7 @@ public class DoublyLinkedList<T extends Comparable<T>> {
 		int count = 0;
 		while (curr != null) {
 			count++;
-			curr = curr.next;
+			curr = curr.getNext();
 		}
 		return count;
 	}
@@ -212,7 +213,7 @@ public class DoublyLinkedList<T extends Comparable<T>> {
 	private int recursiveLength(DNode<T> curr) {
 		if (curr == null)
 			return 0;
-		return 1 + recursiveLength(curr.next);
+		return 1 + recursiveLength(curr.getNext());
 	}
 
 	public void traverse() {
@@ -220,7 +221,7 @@ public class DoublyLinkedList<T extends Comparable<T>> {
 		System.out.print("Head --> ");
 		while (curr != null) {
 			System.out.print(curr + " --> ");
-			curr = curr.next;
+			curr = curr.getNext();
 		}
 		System.out.println("Null");
 	}
@@ -235,34 +236,46 @@ public class DoublyLinkedList<T extends Comparable<T>> {
 		if (curr == null)
 			return;
 		System.out.print(curr + " --> ");
-		recursiveTraverse(curr.next);
+		recursiveTraverse(curr.getNext());
 	}
 
-	public void backwardReverse() {
+	public void backwardTraverse() {
 		DNode<T> curr = head;
 
-		while (curr != null && curr.next != null)
-			curr = curr.next;
+		while (curr != null && curr.getNext() != null)
+			curr = curr.getNext();
 
 		System.out.print("Tail --> ");
 		while (curr != null) {
 			System.out.print(curr + " --> ");
-			curr = curr.prev;
+			curr = curr.getPrev();
 		}
 		System.out.println("Null");
 	}
 
-	public void recursiveBackwardReverse() {
+	public void recursiveBackwardTraverse() {
 		System.out.print("Tail --> ");
-		recursiveBackwardReverse(head);
+		recursiveBackwardTraverse(head);
 		System.out.println("Null");
 	}
 
-	private void recursiveBackwardReverse(DNode<T> curr) {
+	private void recursiveBackwardTraverse(DNode<T> curr) {
 		if (curr == null)
 			return;
-		recursiveBackwardReverse(curr.next);
+		recursiveBackwardTraverse(curr.getNext());
 		System.out.print(curr + " --> ");
+	}
+	
+	@Override
+	public String toString() {
+		DNode<T> curr = head;
+		String res = "Head --> ";
+		while (curr != null) {
+			res += curr + " --> ";
+			curr = curr.getNext();
+		}
+		res += "Null";
+		return res;
 	}
 
 }
