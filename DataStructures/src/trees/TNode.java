@@ -1,6 +1,6 @@
 package trees;
 
-public class TNode<T extends Comparable<T>> {
+public class TNode<T extends Comparable<T>> implements Comparable<TNode<T>> {
 
 	private T data;
 	private TNode<T> left, right;
@@ -49,6 +49,12 @@ public class TNode<T extends Comparable<T>> {
 	public String toString() {
 		return "[" + data + "]";
 	}
+
+	@Override
+	public int compareTo(TNode<T> o) {
+		return 0; // this is a dummy implementation
+	}
+
 
 }
 
