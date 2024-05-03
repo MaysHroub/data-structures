@@ -2,7 +2,7 @@ package queue_pack;
 
 import stack.LinkedListStack;
 
-public class SQueue<T extends Comparable<T>> implements Queueable<T>{
+public class SQueue<T extends Comparable<T>> implements Queueable<T> {
 
 	private LinkedListStack<T> items, temp;
 	

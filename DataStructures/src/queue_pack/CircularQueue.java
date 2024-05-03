@@ -2,7 +2,7 @@ package queue_pack;
 
 import java.lang.reflect.Array;
 
-public class CircularQueue<T extends Comparable<T>> {
+public class CircularQueue<T extends Comparable<T>> implements Queueable<T> {
 
 	private int count, front, back; 
 	private T[] arr; // or make it of Comparable type
@@ -15,6 +15,7 @@ public class CircularQueue<T extends Comparable<T>> {
 		back = -1;
 	}
 	
+	@Override
 	public void enqueue(T data) {
 		if (count < arr.length) {
 			back = ++back % (arr.length);
@@ -24,6 +25,7 @@ public class CircularQueue<T extends Comparable<T>> {
 		}
 	}
 	
+	@Override
 	public T dequeue() {
 		if (count > 0) {
 			T temp = arr[front];
@@ -35,13 +37,16 @@ public class CircularQueue<T extends Comparable<T>> {
 		return null;
 	}
 	
+	@Override
 	public T getFront() {
 		if (count == 0) return null;
 		return arr[front];
 	}
 	
+	@Override
 	public boolean isEmpty() { return count == 0; }
 	
+	@Override
 	public void clear() { count = 0; }
 	
 }

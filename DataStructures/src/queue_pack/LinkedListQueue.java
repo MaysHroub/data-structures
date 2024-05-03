@@ -1,39 +1,55 @@
 package queue_pack;
 
-import linkedlist.Node;
 
-public class LinkedListQueue<T extends Comparable<T>> {
+public class LinkedListQueue<T extends Comparable<T>> implements Queueable<T>{
+
+	private class Node<T extends Comparable<T>> {
+		T data;
+		Node<T> next;
+		Node(T data) {
+			this.data = data;
+		}
+	}
 	
 	private Node<T> front, back;
-	
-	
+
+	@Override
 	public void enqueue(T data) {
 		Node<T> newNode = new Node<>(data);
-		if (isEmpty()) 
+		if (isEmpty())
 			front = newNode;
 		else
-			newNode.next = back;
+			back.next = newNode;
 		back = newNode;
 	}
-	
+
+	@Override
 	public T dequeue() {
-		if (isEmpty()) return null;
-		T temp = front.data;
-		front = front.next;
+		T temp = getFront();
+		if (!isEmpty())
+			front = front.next;
+		if (front == null)
+			back = null;
 		return temp;
+
 	}
-	
+
+	@Override
 	public T getFront() {
-		if (isEmpty()) return null;
-		return front.data;
+		if (!isEmpty())
+			return front.data;
+		return null;
 	}
-	
+
+	@Override
 	public boolean isEmpty() {
-		return front == null && back == null;
+		return (front == null) && (back == null);
 	}
-	
+
+	@Override
 	public void clear() {
 		front = null;
 		back = null;
 	}
+	
 }

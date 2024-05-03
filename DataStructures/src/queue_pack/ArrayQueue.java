@@ -2,7 +2,7 @@ package queue_pack;
 
 import java.lang.reflect.Array;
 
-public class ArrayQueue<T extends Comparable<T>> {
+public class ArrayQueue<T extends Comparable<T>> implements Queueable<T> {
 	
 	private int front, back; // front pointer is not necessary...
 	private T[] arr; // or make it of Comparable type
@@ -15,6 +15,7 @@ public class ArrayQueue<T extends Comparable<T>> {
 		back = -1;
 	}
 	
+	@Override
 	public void enqueue(T data) {
 		if (isEmpty()) { // empty
 			arr[0] = data;
@@ -24,6 +25,7 @@ public class ArrayQueue<T extends Comparable<T>> {
 			arr[++back] = data;
 	}
 	
+	@Override
 	public T dequeue() {
 		if (isEmpty()) return null;
 		T temp = arr[front];
@@ -33,15 +35,18 @@ public class ArrayQueue<T extends Comparable<T>> {
 		return temp;
 	}
 	
+	@Override
 	public T getFront() {
 		if (isEmpty()) return null;
 		return arr[front];
 	}
 	
+	@Override
 	public boolean isEmpty() {
 		return front == -1 && back == -1;
 	}
 	
+	@Override
 	public void clear() {
 		front = -1;
 		back = -1;
