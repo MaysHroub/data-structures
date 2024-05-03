@@ -2,9 +2,15 @@ package cursorarray;
 
 public class CNode<T extends Comparable<T>> {
 	
-	T data;
-	int next;
-
+	private T data;
+	private int next;
+	
+	
+	public CNode(T data, int next) {
+		this.data = data;
+		this.next = next;
+	}
+	
 	public T getData() {
 		return data;
 	}
@@ -20,14 +26,9 @@ public class CNode<T extends Comparable<T>> {
 	public void setNext(int next) {
 		this.next = next;
 	}
-	
+
 	public CNode(T data) {
 		this.data = data;
-	}
-	
-	public CNode(T data, int next) {
-		this.data = data;
-		this.next = next;
 	}
 	
 	@Override
