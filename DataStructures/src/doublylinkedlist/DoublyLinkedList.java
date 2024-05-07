@@ -57,20 +57,22 @@ public class DoublyLinkedList<T extends Comparable<T>> {
 	public DNode<T> delete(T data) {
 		DNode<T> curr = head;
 
-		if (head == null)
+		for (; curr != null && curr.getData().compareTo(data) < 0;
+				curr = curr.getNext());
+
+		if (curr == null || curr.getData().compareTo(data) != 0)
 			return null;
 
-		for (; curr.getNext() != null && curr.getData().compareTo(data) < 0; curr = curr.getNext())
-			;
-
-		if (curr.getData().compareTo(data) != 0)
-			return null;
-
-		if (curr == head)
+		if (curr.getPrev() == null && curr.getNext() == null) // delete 1 item
+			head = null;
+		else if (curr.getPrev() == null) { // delete the first item
+			curr.getNext().setPrev(null);
 			head = curr.getNext();
-		else if (curr.getNext() == null)
+		}
+		else if (curr.getNext() == null)  // delete the last item
 			curr.getPrev().setNext(null);
-		else {
+		
+		else {    // delete between                       
 			curr.getNext().setPrev(curr.getPrev());
 			curr.getPrev().setNext(curr.getNext());
 		}
