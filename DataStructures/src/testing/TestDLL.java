@@ -17,6 +17,11 @@ public class TestDLL {
 		dll.insert(70);
 		dll.removeDuplicates2();
 		dll.traverse();
+		dll.reverse2();
+		dll.reverse2();
+		dll.traverse();
+		DoublyLinkedList.reverseDLL(dll);
+		dll.traverse();
 		
 //		dll.recursiveDelete(29);
 //		System.out.println(dll.recursiveFind(55));
