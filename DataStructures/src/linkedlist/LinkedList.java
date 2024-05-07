@@ -79,9 +79,7 @@ public class LinkedList<T extends Comparable<T>> {
 		if (curr != null && curr.getData().compareTo(data) == 0) {
 			if (prev == null)  // delete the first node
 				head = curr.getNext();
-			else if (curr.getNext() == null) // delete the last node
-				prev.setNext(null);
-			else                // delete a middle node
+			else                // delete a middle node or the last one
 				prev.setNext(curr.getNext());
 			return curr;
 		}
