@@ -5,7 +5,7 @@ public class CursorArray<T extends Comparable<T>> {
 	private CNode<T>[] arr;
 
 	public CursorArray(int size) {
-		arr = new CNode[size + 1];
+		arr = new CNode[size + 1];  // for the dummy head of free-list
 		init(); // recursiveInit()
 	}
 
