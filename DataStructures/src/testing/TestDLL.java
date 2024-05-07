@@ -1,22 +1,31 @@
 package testing;
 
-import linkedlist.DoublyLinkedList;
+
+import doublylinkedlist.*;
 
 public class TestDLL {
 
 	public static void main(String[] args) {
 		DoublyLinkedList<Integer> dll = new DoublyLinkedList<>();
 
+		dll.insert(50);
+		dll.insert(50);
+		dll.insert(50);
+		dll.insert(60);
+		dll.insert(55);
+		dll.insert(55);
+		dll.insert(70);
+		dll.removeDuplicates2();
+		dll.traverse();
+		
 //		dll.recursiveDelete(29);
 //		System.out.println(dll.recursiveFind(55));
 
 		// -------------- insert new data
-//		dll.insert(50);
-//		dll.traverse();
-//		dll.insert(60);
-//		dll.traverse();
-//		dll.insert(90);
-//		dll.traverse();
+		dll.insert(50);
+		dll.insert(90);
+		dll.insert(60);
+		dll.traverse();
 //
 //		dll.insert(40); // insert first
 //		dll.traverse();
@@ -29,13 +38,16 @@ public class TestDLL {
 		
 		// -------------- insert new data
 //		dll.recursiveTraverse();
+		dll.recursiveReverse();
 		dll.recursiveRemoveDuplicates();
 		dll.recursiveInsert(55);
-		dll.recursiveRemoveDuplicates();
+		//dll.recursiveReverse();
+		//dll.reverse();
 		dll.recursiveInsert(50);
-		dll.recursiveRemoveDuplicates();
+		dll.traverse();
+		//dll.recursiveReverse();
+		dll.traverse();
 		dll.recursiveInsert(90);
-		dll.recursiveRemoveDuplicates();
 		dll.recursiveInsert(90);
 		dll.recursiveInsert(50);
 		dll.recursiveInsert(60);
@@ -43,6 +55,8 @@ public class TestDLL {
 		dll.recursiveInsert(60);
 		dll.traverse();
 		dll.recursiveRemoveDuplicates();
+		dll.traverse();
+		dll.recursiveReverse();
 		dll.traverse();
 //		dll.recursiveTraverse();
 		
