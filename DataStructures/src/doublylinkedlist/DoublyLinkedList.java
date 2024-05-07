@@ -150,6 +150,18 @@ public class DoublyLinkedList<T extends Comparable<T>> {
 			}
 		}
 	}
+	
+	public void removeDuplicates2() {
+		DNode<T> curr = head;
+		while (curr == null || curr.getNext() == null) {
+			DNode<T> temp = curr;
+			for (; temp != null && temp.getData().compareTo(curr.getData()) == 0;
+					temp = temp.getNext());
+			curr.setNext(temp);
+			if (temp != null) temp.setPrev(curr);
+			curr = curr.getNext();
+		}
+	}
 
 	public void recursiveRemoveDuplicates() {
 		if (head != null)
