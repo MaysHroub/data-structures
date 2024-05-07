@@ -1,6 +1,5 @@
 package doublylinkedlist;
 
-
 public class DoublyLinkedList<T extends Comparable<T>> {
 
 	private DNode<T> head;
@@ -194,6 +193,29 @@ public class DoublyLinkedList<T extends Comparable<T>> {
 			head = head.getPrev();
 			temp = curr.getNext();
 		}
+	}
+	
+	public void reverse2() {
+		DNode<T> curr = head, tempNext;
+		while (curr != null) {
+			head = curr;
+			tempNext = curr.getNext();
+			curr.setNext(curr.getPrev());
+			curr.setPrev(tempNext);
+			curr = tempNext;
+		}
+	}
+	
+	public static DNode reverseDLL(DoublyLinkedList dll) {
+		DNode tempNext, curr = dll.head;
+		while (curr != null) {
+			dll.head = curr;
+			tempNext = curr.getNext();
+			curr.setNext(curr.getPrev());
+			curr.setPrev(tempNext);
+			curr = tempNext;
+		}
+		return dll.head;
 	}
 
 	public void recursiveReverse() {
