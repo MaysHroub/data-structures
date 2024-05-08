@@ -74,7 +74,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
 		queue.enqueue(root);
 		while (!queue.isEmpty()) {
 			TNode<T> curr = queue.dequeue();
-			System.out.println(curr);
+			System.out.print(curr + " ");
 			if (curr.hasLeft()) queue.enqueue(curr.getLeft());
 			if (curr.hasRight()) queue.enqueue(curr.getRight());
 		}
@@ -118,9 +118,9 @@ public class BinarySearchTree<T extends Comparable<T>> {
 		return height(root);
 	}
 
-	public int height(TNode<T> curr) {
+	protected int height(TNode<T> curr) {
 		if (curr == null) return 0;
-		if (curr.isLeaf()) return 1;
+		// if (curr.isLeaf()) return 1;  // there is no need for this line
 		return 1 + Math.max(height(curr.getLeft()), height(curr.getRight()));
 	}
 	
