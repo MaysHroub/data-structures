@@ -102,8 +102,7 @@ public class CursorArray<T extends Comparable<T>> {
 			System.out.println("Out of space");
 			return false;
 		}
-		for (; !isLast(l); l = arr[l].getNext())
-			;
+		for (; !isLast(l); l = arr[l].getNext());
 		arr[p].setData(data);
 		arr[p].setNext(arr[l].getNext()); // arr[p].next = 0
 		arr[l].setNext(p);
@@ -142,8 +141,7 @@ public class CursorArray<T extends Comparable<T>> {
 		if (isEmpty(l))
 			return null;
 		int prev = l;
-		for (; !isLast(l); prev = l, l = arr[l].getNext())
-			;
+		for (; !isLast(l); prev = l, l = arr[l].getNext());
 		arr[prev].setNext(0);
 		free(l);
 		return arr[l];
