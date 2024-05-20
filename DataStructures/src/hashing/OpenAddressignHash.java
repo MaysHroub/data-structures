@@ -3,7 +3,7 @@ package hashing;
 public abstract class OpenAddressignHash<T extends Comparable<T>> {
 	
 	protected HNode<T>[] table;
-	protected int m;
+	protected int m, size;
 	
 	@SuppressWarnings("unchecked")
 	protected OpenAddressignHash(int dataSize) {
