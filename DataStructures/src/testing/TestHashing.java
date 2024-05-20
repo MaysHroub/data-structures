@@ -25,18 +25,21 @@ public class TestHashing {
 		
 		System.out.println("------------------");
 		
-		LinearOHash<Integer> linearHash = new LinearOHash<>(10);
+		LinearOHash<Integer> linearHash = new LinearOHash<>(5); // m = 11
 		linearHash.add(1);
 		linearHash.add(2);
 		linearHash.add(3);
 		linearHash.add(-24);
 		linearHash.add(-24);
-		linearHash.add(47);
-		linearHash.add(22);
-		linearHash.add(23);
-		
 		linearHash.traverse();
 		System.out.println();
+		
+		linearHash.add(47); // rehash here 
+		linearHash.add(22);
+		linearHash.add(23);
+		linearHash.traverse();
+		System.out.println();
+		
 		System.out.println(linearHash.find(23));
 		System.out.println(linearHash.delete(23));
 		System.out.println(linearHash.find(23));
