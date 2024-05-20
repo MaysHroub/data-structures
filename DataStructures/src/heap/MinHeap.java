@@ -51,5 +51,11 @@ public class MinHeap<T extends Comparable<T>> implements MinHeapInterface<T> {
 	private boolean bigger(int p, int c) {
 		return arr[p].compareTo(arr[c]) > 0;
 	}
+	
+	private void swap(int p, int c) {
+		T temp = arr[p];
+		arr[p] = arr[c];
+		arr[c] = temp;
+	}
 
 }
