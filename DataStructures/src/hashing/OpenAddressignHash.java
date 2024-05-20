@@ -46,7 +46,8 @@ public abstract class OpenAddressignHash<T extends Comparable<T>> {
 		table = new HNode[m];
 		for (int i = 0; i < m; i++)
 			table[i] = new HNode<>(null);
-		
+		size = 0;
+
 		for (int i = 0; i < tempM; i++) 
 			if (tempTable[i].getFlag() == Flag.FULL)
 				add(tempTable[i].getData());
