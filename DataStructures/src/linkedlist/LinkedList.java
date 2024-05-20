@@ -5,7 +5,7 @@ public class LinkedList<T extends Comparable<T>> {
 
 	private Node<T> head;
 	
-	public void insert(T data) {
+	public void insertSorted(T data) {
 		Node<T> newNode = new Node<>(data);
 		
 		if (head == null) {
