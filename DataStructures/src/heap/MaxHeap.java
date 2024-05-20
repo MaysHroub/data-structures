@@ -27,7 +27,7 @@ public class MaxHeap<T extends Comparable<T>> implements MaxHeapInterface<T> {
 
 	@Override
 	public T getMax() {
-		return null;
+		return arr[1];
 	}
 
 	@Override
