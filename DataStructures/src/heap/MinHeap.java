@@ -2,6 +2,9 @@ package heap;
 
 public class MinHeap<T extends Comparable<T>> implements MinHeapInterface<T> {
 
+	private T[] arr;
+	private int N;
+	
 	@Override
 	public void add(T data) {
 		// TODO Auto-generated method stub
