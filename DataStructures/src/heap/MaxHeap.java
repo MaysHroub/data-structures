@@ -12,7 +12,8 @@ public class MaxHeap<T extends Comparable<T>> implements MaxHeapInterface<T> {
 	
 	@Override
 	public void add(T data) {
-		
+		arr[++N] = data;
+		swim(N);
 	}
 
 	@Override
