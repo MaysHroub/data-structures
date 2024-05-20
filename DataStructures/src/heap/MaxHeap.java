@@ -42,7 +42,7 @@ public class MaxHeap<T extends Comparable<T>> implements MaxHeapInterface<T> {
 
 	@Override
 	public void clear() {
-		
+		N = 0;
 	}
 	
 	private void swim(int k) {
