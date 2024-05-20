@@ -1,6 +1,6 @@
 package heap;
 
-public class MinHeap implements MinHeapInterface<T> {
+public class MinHeap<T extends Comparable<T>> implements MinHeapInterface<T> {
 
 	@Override
 	public void add(T data) {
