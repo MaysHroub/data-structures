@@ -2,9 +2,6 @@ package hashing;
 
 public class LinearOHash<T extends Comparable<T>> extends OpenAddressignHash<T>{
 	
-	private HNode<T>[] table;
-	private int m;
-	
 	public LinearOHash(int dataSize) {
 		super(dataSize);
 	}
