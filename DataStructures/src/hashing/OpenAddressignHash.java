@@ -35,5 +35,21 @@ public abstract class OpenAddressignHash<T extends Comparable<T>> {
 			if (table[i].getData() != null)
 				System.out.print(i + "" + table[i] + " - ");
 	}
+	
+	protected void rehash() {
+		int tempM = m;
+		HNode<T>[] tempTable = table;
+		
+		m *= 2;
+		for(; !isPrime(++m); );
+		table = new HNode[m];
+		for (int i = 0; i < m; i++)
+			table[i] = new HNode<>(null);
+		
+		for (int i = 0; i < tempM; i++) 
+			if (tempTable[i].getFlag() == Flag.FULL)
+				add(tempTable[i].getData());
+				
+	}
 
 }
