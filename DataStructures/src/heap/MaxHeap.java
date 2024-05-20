@@ -32,7 +32,7 @@ public class MaxHeap<T extends Comparable<T>> implements MaxHeapInterface<T> {
 
 	@Override
 	public boolean isEmpty() {
-		return false;
+		return N == 0;
 	}
 
 	@Override
