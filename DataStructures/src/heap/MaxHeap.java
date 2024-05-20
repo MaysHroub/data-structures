@@ -41,13 +41,19 @@ public class MaxHeap<T extends Comparable<T>> implements MaxHeapInterface<T> {
 	
 	private void swim(int k) {
 		while (k > 1 && less(k/2, k)) {
-			swap(k, k/2);
+			swap(k/2, k);
 			k /= 2;
 		}
 	}
 	
 	private boolean less(int p, int c) {
 		return arr[p].compareTo(arr[c]) < 0;
+	}
+	
+	private void swap(int p, int c) {
+		T temp = arr[p];
+		arr[p] = arr[c];
+		arr[c] = temp;
 	}
 	
 }
