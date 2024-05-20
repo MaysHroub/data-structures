@@ -57,5 +57,15 @@ public class MinHeap<T extends Comparable<T>> implements MinHeapInterface<T> {
 		arr[p] = arr[c];
 		arr[c] = temp;
 	}
+	
+	private void sink(int k) {
+		while (2*k <= N) {
+			int j = 2*k;
+			if (j < N && bigger(j, j+1)) j++;
+			if (!bigger(k, j)) break;
+			swap(k, j);
+			k = j;
+		}
+	}
 
 }
