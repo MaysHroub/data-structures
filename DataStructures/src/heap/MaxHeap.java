@@ -18,7 +18,11 @@ public class MaxHeap<T extends Comparable<T>> implements MaxHeapInterface<T> {
 
 	@Override
 	public T removeMax() {
-		return null;
+		T max = arr[1];
+		swap(1, N--);
+		sink(1);
+		arr[N+1] = null; // prevent loitering ??
+		return max;
 	}
 
 	@Override
