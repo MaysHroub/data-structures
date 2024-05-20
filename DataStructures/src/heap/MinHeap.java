@@ -39,10 +39,14 @@ public class MinHeap<T extends Comparable<T>> implements MinHeapInterface<T> {
 	}
 	
 	private void swim(int k) {
-		while (k > 1 && less(k/2, k)) {
+		while (k > 1 && bigger(k/2, k)) {
 			swap(k/2, k);
 			k /= 2;
 		}
+	}
+	
+	private boolean bigger(int p, int c) {
+		return arr[p].compareTo(arr[c]) > 0;
 	}
 
 }
