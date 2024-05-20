@@ -1,4 +1,4 @@
-package queue_pack;
+package queue;
 
 import stack.LinkedListStack;
 

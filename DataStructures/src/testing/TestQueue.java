@@ -2,7 +2,7 @@ package testing;
 
 import java.util.Random;
 
-import queue_pack.SQueue;
+import queue.SQueue;
 
 public class TestQueue {
 

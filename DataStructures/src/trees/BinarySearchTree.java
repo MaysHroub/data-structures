@@ -1,7 +1,6 @@
 package trees;
 
-
-import queue_pack.LinkedListQueue;
+import queue.LinkedListQueue;
 import stack.LinkedListStack;
 
 public class BinarySearchTree<T extends Comparable<T>> {

@@ -1,4 +1,4 @@
-package queue_pack;
+package queue;
 
 public interface Queueable<T extends Comparable<T>> {
 	

@@ -1,4 +1,4 @@
-package queue_pack;
+package queue;
 
 
 public class LinkedListQueue<T extends Comparable<T>> implements Queueable<T>{
