@@ -7,38 +7,37 @@ public class MinHeap<T extends Comparable<T>> implements MinHeapInterface<T> {
 	
 	@Override
 	public void add(T data) {
-		// TODO Auto-generated method stub
-		
+		arr[++N] = data;
+		swim(N);
 	}
 
 	@Override
 	public T removeMin() {
-		// TODO Auto-generated method stub
-		return null;
+		T min = arr[1];
+		swap(1, N--);
+		sink(1);
+		arr[N+1] = null; // prevent loitering ??
+		return min;
 	}
 
 	@Override
 	public T getMin() {
-		// TODO Auto-generated method stub
-		return null;
+		return arr[1];
 	}
 
 	@Override
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return false;
+		return N == 0;
 	}
 
 	@Override
 	public int getSize() {
-		// TODO Auto-generated method stub
-		return 0;
+		return N;
 	}
 
 	@Override
 	public void clear() {
-		// TODO Auto-generated method stub
-		
+		N = 0;
 	}
 	
 	private void swim(int k) {
