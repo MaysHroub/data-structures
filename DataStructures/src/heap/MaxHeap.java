@@ -39,4 +39,11 @@ public class MaxHeap<T extends Comparable<T>> implements MaxHeapInterface<T> {
 		
 	}
 	
+	private void swim(int k) {
+		while (k > 1 && less(k/2, k)) {
+			swap(k, k/2);
+			k /= 2;
+		}
+	}
+	
 }
