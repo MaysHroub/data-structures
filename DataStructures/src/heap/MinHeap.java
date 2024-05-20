@@ -37,5 +37,12 @@ public class MinHeap<T extends Comparable<T>> implements MinHeapInterface<T> {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	private void swim(int k) {
+		while (k > 1 && less(k/2, k)) {
+			swap(k/2, k);
+			k /= 2;
+		}
+	}
 
 }
