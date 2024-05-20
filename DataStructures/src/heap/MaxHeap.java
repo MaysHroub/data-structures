@@ -3,6 +3,7 @@ package heap;
 public class MaxHeap<T extends Comparable<T>> implements MaxHeapInterface<T> {
 
 	private T[] arr;
+	private int N;
 	
 	@SuppressWarnings("unchecked")
 	public MaxHeap(int size) {
