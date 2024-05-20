@@ -46,4 +46,8 @@ public class MaxHeap<T extends Comparable<T>> implements MaxHeapInterface<T> {
 		}
 	}
 	
+	private boolean less(int p, int c) {
+		return arr[p].compareTo(arr[c]) < 0;
+	}
+	
 }
