@@ -18,6 +18,7 @@ public class LinearOHash<T extends Comparable<T>> extends OpenAddressignHash<T>{
 			index = (index + --i) % m;
 			table[index].setData(data);
 			table[index].setFlag(Flag.FULL);
+			++size;
 		}
 	}
 	

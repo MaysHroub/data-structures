@@ -18,6 +18,7 @@ public class QuadraticOHash<T extends Comparable<T>>  extends OpenAddressignHash
 			index = (index + (--i) * i) % m;
 			table[index].setData(data);
 			table[index].setFlag(Flag.FULL);
+			++size;
 		}
 	}
 	
