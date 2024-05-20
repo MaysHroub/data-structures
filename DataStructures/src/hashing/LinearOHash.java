@@ -1,19 +1,15 @@
 package hashing;
 
-public class LinearOHash<T extends Comparable<T>> {
+public class LinearOHash<T extends Comparable<T>> extends OpenAddressignHash<T>{
 	
 	private HNode<T>[] table;
 	private int m;
 	
-	@SuppressWarnings("unchecked")
 	public LinearOHash(int dataSize) {
-		m = dataSize * 2;
-		for(; !isPrime(++m); );
-		table = new HNode[m];
-		for (int i = 0; i < m; i++)
-			table[i] = new HNode<>(null);
+		super(dataSize);
 	}
 	
+	@Override
 	public void add(T data) {
 		int index = Math.abs(data.hashCode()) % m;
 		int i = 0;
@@ -27,6 +23,7 @@ public class LinearOHash<T extends Comparable<T>> {
 		}
 	}
 	
+	@Override
 	public HNode<T> find(T data) {
 		int index = Math.abs(data.hashCode()) % m;
 		int i = 0; Flag flag = table[(index + i) % m].getFlag();
@@ -40,24 +37,6 @@ public class LinearOHash<T extends Comparable<T>> {
 			return table[(index + i) % m];
 		
 		return null;
-	}
-	
-	public HNode<T> delete(T data) {
-		HNode<T> deleted = find(data);
-		if (deleted != null) deleted.setFlag(Flag.DELETED);
-		return deleted;
-	}
-	
-	private boolean isPrime(int n) {
-		for (int i = 2; i * i <= n; i++)
-			if (n % i == 0) return false;
-		return true;
-	}
-	
-	public void traverse() {
-		for (int i = 0; i < m; i++) 
-			if (table[i].getData() != null)
-				System.out.print(i + "" + table[i] + " - ");
 	}
 	
 }
