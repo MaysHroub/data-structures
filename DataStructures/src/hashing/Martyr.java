@@ -18,7 +18,6 @@ public class Martyr implements Comparable<Martyr> {
 		setEvent(event);
 	}
 	
-
 	public Date getEvent() {
 		return event;
 	}
