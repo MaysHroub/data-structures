@@ -3,7 +3,7 @@ package hashing;
 public abstract class OpenAddressignHash<T extends Comparable<T>> {
 	
 	protected HNode<T>[] table;
-	protected int m, size;
+	protected int m, size, collisions;
 	
 	@SuppressWarnings("unchecked")
 	protected OpenAddressignHash(int dataSize) {
@@ -14,6 +14,10 @@ public abstract class OpenAddressignHash<T extends Comparable<T>> {
 			table[i] = new HNode<>(null);
 	}
 	
+	public int getCollisions() {
+		return collisions;
+	}
+
 	public abstract void add(T data);
 	
 	public abstract HNode<T> find(T data);
@@ -37,6 +41,7 @@ public abstract class OpenAddressignHash<T extends Comparable<T>> {
 				System.out.print(i + "" + table[i] + " - ");
 	}
 	
+	@SuppressWarnings("unchecked")
 	protected void rehash() {
 		int tempM = m;
 		HNode<T>[] tempTable = table;
@@ -51,7 +56,6 @@ public abstract class OpenAddressignHash<T extends Comparable<T>> {
 		for (int i = 0; i < tempM; i++) 
 			if (tempTable[i].getFlag() == Flag.FULL)
 				add(tempTable[i].getData());
-				
 	}
 
 }
