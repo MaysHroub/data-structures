@@ -45,4 +45,11 @@ public class SHash<T extends Comparable<T>> {
 		}
 	}
 	
+	public double avgLength() {
+		int sum = 0;
+		for (int i = 0; i < size; i++)
+			sum += table[i].length();
+		return (double) sum / size;
+	}
+	
 }
