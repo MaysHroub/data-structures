@@ -83,7 +83,7 @@ public class MaxHeap<T extends Comparable<T>> implements MaxHeapInterface<T> {
 	}
 	
 	public static void heapSort(Comparable[] a) {
-		int N = a.length;
+		int N = a.length - 1;
 		Comparable temp;
 		
 		heapify(a);  // to a max-heap
@@ -91,8 +91,8 @@ public class MaxHeap<T extends Comparable<T>> implements MaxHeapInterface<T> {
 		while (N > 1) {
 			// 1. Swap the first element with the last element
 			temp = a[1];
-			a[1] = a[N - 1];
-			a[N - 1] = temp;
+			a[1] = a[N];
+			a[N] = temp;
 			
 			// 2. decrement N
 			N--;
@@ -112,7 +112,7 @@ public class MaxHeap<T extends Comparable<T>> implements MaxHeapInterface<T> {
 	}
 	
 	public static void heapify(Comparable[] a) {
-		int N = a.length, i = --N / 2;
+		int N = a.length - 1, i = N / 2;
 		Comparable temp;
 		while (i-- > 0) {
 			int k = i+1;
