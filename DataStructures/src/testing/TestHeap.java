@@ -27,6 +27,16 @@ public class TestHeap {
 		
 		System.out.println("MaxHeap? " + MaxHeap.isMaxHeap(a));
 		System.out.println("MinHeap? " + MinHeap.isMinHeap(a));
+		
+		MaxHeap.heapSortAsc(a);
+		for (int i = 1; i < a.length; i++)
+			System.out.print(a[i] + " ");
+		System.out.println();
+		
+		MinHeap.heapSortDesc(a);
+		for (int i = 1; i < a.length; i++)
+			System.out.print(a[i] + " ");
+		System.out.println();
 
 	}
 
