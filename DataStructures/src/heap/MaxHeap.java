@@ -111,7 +111,7 @@ public class MaxHeap<T extends Comparable<T>> implements MaxHeapInterface<T> {
 		}
 	}
 	
-	private static void heapify(Comparable[] a) {
+	public static void heapify(Comparable[] a) {
 		int N = a.length, i = N / 2;
 		Comparable temp;
 		while (i-- > 0) {
