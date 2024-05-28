@@ -71,5 +71,15 @@ public class MinHeap<T extends Comparable<T>> implements MinHeapInterface<T> {
 			k = j;
 		}
 	}
+	
+	public static boolean isMinHeap(Comparable[] a) {
+		int N = a.length;
+		for (int i = 1; i <= N/2; i++) {
+			int lc = i*2, rc = lc + 1;
+			if (lc < N && a[i].compareTo(a[lc]) > 0) return false;
+			if (rc < N && a[i].compareTo(a[rc]) > 0) return false;
+		}
+		return true;
+	}
 
 }
