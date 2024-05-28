@@ -46,7 +46,7 @@ public class MinHeap<T extends Comparable<T>> implements MinHeapInterface<T> {
 	}
 	
 	private void swim(int k) {
-		while (k > 1 && bigger(k/2, k)) {
+		while (k > 1 && !less(k/2, k)) {
 			swap(k/2, k);
 			k /= 2;
 		}
@@ -65,8 +65,8 @@ public class MinHeap<T extends Comparable<T>> implements MinHeapInterface<T> {
 	private void sink(int k) {
 		while (2*k <= N) {
 			int j = 2*k;
-			if (j < N && bigger(j, j+1)) j++;
-			if (!bigger(k, j)) break;
+			if (j < N && !less(j, j+1)) j++;
+			if (less(k, j)) break;
 			swap(k, j);
 			k = j;
 		}
