@@ -6,7 +6,7 @@ import linkedlist.Node;
 public class SHash<T extends Comparable<T>> {
 	
 	private LinkedList<T>[] table;
-	int size;
+	private int size;
 	
 	@SuppressWarnings("unchecked")
 	public SHash(int size) {
