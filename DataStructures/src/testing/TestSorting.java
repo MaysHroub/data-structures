@@ -5,7 +5,7 @@ import java.util.Random;
 
 import heap.MaxHeap;
 
-public class TestHeap {
+public class TestSorting {
 
 	public static void main(String[] args) {
 		int N = 100000;
