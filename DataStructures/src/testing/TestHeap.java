@@ -12,6 +12,10 @@ public class TestHeap {
 		MaxHeap.heapify(a);
 		for (int i = 1; i < a.length; i++)
 			System.out.print(a[i] + " ");
+		
+		MaxHeap.heapSort(a);
+		for (int i = 1; i < a.length; i++)
+			System.out.print(a[i] + " ");
 	}
 	
 	
