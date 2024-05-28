@@ -86,7 +86,7 @@ public class MaxHeap<T extends Comparable<T>> implements MaxHeapInterface<T> {
 		int N = a.length;
 		Comparable temp;
 		
-		// heapify(a);  // to a max-heap
+		heapify(a);  // to a max-heap
 		
 		while (N > 1) {
 			// 1. Swap the first element with the last element
