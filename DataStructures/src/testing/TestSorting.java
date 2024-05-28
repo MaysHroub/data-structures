@@ -25,7 +25,7 @@ public class TestSorting {
 			a[i] = rand.nextInt(100000);
 		
 		start = System.currentTimeMillis();
-		MaxHeap.heapSort(a);
+		MaxHeap.heapSortAsc(a);
 		heapTime = System.currentTimeMillis() - start;
 		
 		for (int i = 0; i < N; i++)
