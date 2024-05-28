@@ -5,6 +5,11 @@ public class MinHeap<T extends Comparable<T>> implements MinHeapInterface<T> {
 	private T[] arr;
 	private int N;
 	
+	@SuppressWarnings("unchecked")
+	public MinHeap(int size) {
+		arr = (T[]) new Comparable[size + 1];
+	}
+	
 	@Override
 	public void add(T data) {
 		arr[++N] = data;
