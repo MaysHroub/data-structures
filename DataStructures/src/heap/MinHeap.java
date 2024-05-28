@@ -81,5 +81,23 @@ public class MinHeap<T extends Comparable<T>> implements MinHeapInterface<T> {
 		}
 		return true;
 	}
+	
+	public static void minHeapify(Comparable[] a) {
+		int N = a.length - 1, i = N / 2;
+		Comparable temp;
+		while (i-- > 0) {
+			// sink [i+1]
+			int k = i+1;
+			while (2*k <= N) {
+				int j = 2*k;
+				if (j < N && a[j].compareTo(a[j+1]) >= 0) j++;
+				if (a[k].compareTo(a[j]) < 0) break;
+				temp = a[k];
+				a[k] = a[j];
+				a[j] = temp;
+				k = j;
+			}
+		}
+	}
 
 }
