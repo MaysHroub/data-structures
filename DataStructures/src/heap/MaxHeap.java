@@ -7,7 +7,7 @@ public class MaxHeap<T extends Comparable<T>> implements MaxHeapInterface<T> {
 	
 	@SuppressWarnings("unchecked")
 	public MaxHeap(int size) {
-		arr = (T[]) new Comparable[size];
+		arr = (T[]) new Comparable[size + 1];
 	}
 	
 	@Override
