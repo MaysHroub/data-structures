@@ -82,7 +82,7 @@ public class MaxHeap<T extends Comparable<T>> implements MaxHeapInterface<T> {
 		return true;
 	}
 	
-	public static void heapSort(Comparable[] a) {
+	public static void heapSortAsc(Comparable[] a) {
 		int N = a.length - 1;
 		Comparable temp;
 		
