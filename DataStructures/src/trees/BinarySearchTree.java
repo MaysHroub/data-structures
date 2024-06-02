@@ -7,13 +7,6 @@ public class BinarySearchTree<T extends Comparable<T>> {
 	
 	protected TNode<T> root;
 	
-	protected TNode<T> getRoot() {
-		return root;
-	}
-	
-	protected void setRoot(TNode<T> root) {
-		this.root = root;
-	}
 	
 	public void traverseInOrder() {
 		traverseInOrder(root);
