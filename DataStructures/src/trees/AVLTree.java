@@ -53,11 +53,11 @@ public class AVLTree<T extends Comparable<T>> extends BinarySearchTree<T> {
 	
 	@Override
 	public void insert(T data) {
-		if (root == null) setRoot(new TNode<>(data));
+		if (root == null) root = new TNode<>(data);
 		else {
 			TNode<T> rootNode = root;
 			addEntry(data, rootNode);
-			setRoot(rebalance(rootNode));
+			root = rebalance(rootNode);
 		}
 	}
 
@@ -86,8 +86,8 @@ public class AVLTree<T extends Comparable<T>> extends BinarySearchTree<T> {
 		TNode<T> temp = super.delete(data);
 		if (temp != null) {
 			TNode<T> rootNode = root;
-			setRoot(rebalance(rootNode));
-			// setRoot(rebalance(root));
+			root = rebalance(rootNode);
+			// root = rebalance(root);
 		}
 		return temp;
 	}
