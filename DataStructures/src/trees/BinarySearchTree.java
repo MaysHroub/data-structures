@@ -5,9 +5,8 @@ import stack.LinkedListStack;
 
 public class BinarySearchTree<T extends Comparable<T>> {
 	
-	private TNode<T> root;
+	protected TNode<T> root;
 	
-	// added setters and getters to be used in AVL class
 	protected TNode<T> getRoot() {
 		return root;
 	}
