@@ -3,9 +3,9 @@ package testing;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Random;
 import java.util.Scanner;
-
 import heap.MaxHeap;
 
 public class TestSorting {
@@ -18,11 +18,18 @@ public class TestSorting {
 				a3 = new Martyr[N],
 				a4 = new Martyr[N];
 		try (Scanner in = new Scanner(new File(path))) {
-			
+			in.nextLine(); // 0.name, 1.event, 2.age, 3.location, 4.district, 5.gender
+			while (in.hasNext()) {
+				String[] tokens = in.nextLine().split(",");
+				Martyr martyr = new Martyr(tokens[0], tokens[4], tokens[3],
+						tokens[5].charAt(0));
+				
+			}
 			
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
+		
 	}
 	
 	private static void test1() {
