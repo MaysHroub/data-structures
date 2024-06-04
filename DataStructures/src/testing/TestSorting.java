@@ -13,7 +13,10 @@ public class TestSorting {
 	public static void main(String[] args) {
 		String path = "C:\\Users\\ismae\\Downloads\\data (2).csv";
 		int N = 9973;
-		Martyr[] a = new Martyr[N];
+		Martyr[] a1 = new Martyr[N],
+				a2 = new Martyr[N],
+				a3 = new Martyr[N],
+				a4 = new Martyr[N];
 		try (Scanner in = new Scanner(new File(path))) {
 			
 			
