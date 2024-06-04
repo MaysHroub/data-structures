@@ -1,7 +1,10 @@
 package testing;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Arrays;
 import java.util.Random;
+import java.util.Scanner;
 
 import heap.MaxHeap;
 
@@ -10,6 +13,12 @@ public class TestSorting {
 	public static void main(String[] args) {
 		String path = "C:\\Users\\ismae\\Downloads\\data (2).csv";
 		int N = 9973;
+		try (Scanner in = new Scanner(new File(path))) {
+			
+			
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	private static void test1() {
