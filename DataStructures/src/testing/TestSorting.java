@@ -13,6 +13,10 @@ import heap.MaxHeap;
 public class TestSorting {
 
 	public static void main(String[] args) {
+		test4();
+	}
+	
+	private static void test4() {
 		String path = "C:\\Users\\ismae\\Downloads\\data (2).csv";
 		ArrayList<Date> list = new ArrayList<>();
 		try (Scanner in = new Scanner(new File(path))) {
@@ -64,7 +68,7 @@ public class TestSorting {
 		System.out.println("Merge sort : " + mergeTime);
 		System.out.println("Quick sort : " + quickTime);
 	}
-	
+
 	private static void test3() {
 		int N = 100000;
 		Integer[] a = new Integer[N];
