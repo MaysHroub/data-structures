@@ -12,6 +12,10 @@ import heap.MaxHeap;
 public class TestSorting {
 
 	public static void main(String[] args) {
+		
+	}
+	
+	private static void test2() {
 		String path = "C:\\Users\\ismae\\Downloads\\data (2).csv";
 		ArrayList<Martyr> list = new ArrayList<>();
 		try (Scanner in = new Scanner(new File(path))) {
