@@ -86,5 +86,20 @@ public class TestSorting {
 			k++;
 		}
 	}
+	
+	public static void shellSort(Comparable[] a) {
+		int N = a.length;
+		int h = 1;
+		while (h < N/3) h = 3*h + 1;
+		while (h >= 1) {
+			for (int i = h; i < N; i++)
+				for (int j = i; j >= h && a[j].compareTo(a[j-h]) < 0; j -= h) {
+					Comparable temp = a[j];
+					a[j] = a[j-h];
+					a[j-h] = temp;
+				}
+			h /= 3;
+		}
+	}
 
 }
