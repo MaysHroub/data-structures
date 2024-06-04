@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Date;
 import java.util.Random;
 import java.util.Scanner;
 import heap.MaxHeap;
@@ -12,8 +13,56 @@ import heap.MaxHeap;
 public class TestSorting {
 
 	public static void main(String[] args) {
+		String path = "C:\\Users\\ismae\\Downloads\\data (2).csv";
+		ArrayList<Date> list = new ArrayList<>();
+		try (Scanner in = new Scanner(new File(path))) {
+			in.nextLine(); // 0.name, 1.event, 2.age, 3.location, 4.district, 5.gender
+			while (in.hasNext()) {
+				String[] tokens = in.nextLine().split(",");
+				String[] dateInfo = tokens[1].split("/");
+				@SuppressWarnings("deprecation")
+				Date date = new Date(Integer.parseInt(dateInfo[2]) - 1900, Integer.parseInt(dateInfo[0]) - 1,
+						Integer.parseInt(dateInfo[1]));
+				list.add(date);
+			}
+			
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
 		
+		Date[] a1 = new Date[list.size()],
+				a2 = new Date[list.size()],
+				a3 = new Date[list.size()],
+				a4 = new Date[list.size()];
+		list.toArray(a1);
+		list.toArray(a2);
+		list.toArray(a3);
+		list.toArray(a4);
 		
+		long insertionTime = 0, shellTime = 0, mergeTime = 0, quickTime = 0;
+		long start;
+		
+		start = System.currentTimeMillis();
+		insertionSort(a1);
+		insertionTime = System.currentTimeMillis() - start;
+		
+		start = System.currentTimeMillis();
+		shellSort(a2);
+		shellTime = System.currentTimeMillis() - start;
+		
+		start = System.currentTimeMillis();
+		mergeSort(a3);
+		mergeTime = System.currentTimeMillis() - start;
+		
+		start = System.currentTimeMillis();
+		Arrays.sort(a4);
+		quickTime = System.currentTimeMillis() - start;
+		
+		System.out.println("Sorting times in millis:");
+		System.out.println("Insertion sort : " + insertionTime);
+		System.out.println("Shell sort : " + shellTime);
+		System.out.println("Merge sort : " + mergeTime);
+		System.out.println("Quick sort : " + quickTime);
 	}
 	
 	private static void test3() {
