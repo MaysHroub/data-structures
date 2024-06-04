@@ -35,6 +35,31 @@ public class TestSorting {
 		list.toArray(a2);
 		list.toArray(a3);
 		list.toArray(a4);
+		
+		long insertionTime = 0, shellTime = 0, mergeTime = 0, quickTime = 0;
+		long start;
+		
+		start = System.currentTimeMillis();
+		insertionSort(a1);
+		insertionTime = System.currentTimeMillis() - start;
+		
+		start = System.currentTimeMillis();
+		shellSort(a2);
+		shellTime = System.currentTimeMillis() - start;
+		
+		start = System.currentTimeMillis();
+		mergeSort(a3);
+		mergeTime = System.currentTimeMillis() - start;
+		
+		start = System.currentTimeMillis();
+		Arrays.sort(a4);
+		quickTime = System.currentTimeMillis() - start;
+		
+		System.out.println("Sorting times in millis:");
+		System.out.println("Insertion sort : " + insertionTime);
+		System.out.println("Shell sort : " + shellTime);
+		System.out.println("Merge sort : " + mergeTime);
+		System.out.println("Quick sort : " + quickTime);
 	}
 	
 	private static void test1() {
