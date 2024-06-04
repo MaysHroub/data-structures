@@ -2,6 +2,7 @@ package testing;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Random;
@@ -12,11 +13,7 @@ public class TestSorting {
 
 	public static void main(String[] args) {
 		String path = "C:\\Users\\ismae\\Downloads\\data (2).csv";
-		int N = 9973;
-		Martyr[] a1 = new Martyr[N],
-				a2 = new Martyr[N],
-				a3 = new Martyr[N],
-				a4 = new Martyr[N];
+		ArrayList<Martyr> list = new ArrayList<>();
 		try (Scanner in = new Scanner(new File(path))) {
 			in.nextLine(); // 0.name, 1.event, 2.age, 3.location, 4.district, 5.gender
 			while (in.hasNext()) {
