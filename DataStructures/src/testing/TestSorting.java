@@ -27,6 +27,14 @@ public class TestSorting {
 			e.printStackTrace();
 		}
 		
+		Martyr[] a1 = new Martyr[list.size()],
+				a2 = new Martyr[list.size()],
+				a3 = new Martyr[list.size()],
+				a4 = new Martyr[list.size()];
+		list.toArray(a1);
+		list.toArray(a2);
+		list.toArray(a3);
+		list.toArray(a4);
 	}
 	
 	private static void test1() {
