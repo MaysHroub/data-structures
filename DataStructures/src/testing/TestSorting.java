@@ -9,6 +9,7 @@ public class TestSorting {
 
 	public static void main(String[] args) {
 		String path = "C:\\Users\\ismae\\Downloads\\data (2).csv";
+		int N = 9973;
 	}
 	
 	private static void test1() {
