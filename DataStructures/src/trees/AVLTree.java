@@ -87,7 +87,6 @@ public class AVLTree<T extends Comparable<T>> extends BinarySearchTree<T> {
 		if (temp != null) {
 			TNode<T> rootNode = root;
 			root = rebalance(rootNode);
-			// root = rebalance(root);
 		}
 		return temp;
 	}
