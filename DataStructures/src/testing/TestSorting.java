@@ -12,7 +12,42 @@ import heap.MaxHeap;
 public class TestSorting {
 
 	public static void main(String[] args) {
+		int N = 100000;
+		Integer[] a = new Integer[N];
+		Random rand = new Random();
 		
+		long insertionTime = 0, shellTime = 0, mergeTime = 0, quickTime = 0;
+		long start;
+		
+		start = System.currentTimeMillis();
+		for (int i = 0; i < N; i++)
+			a[i] = rand.nextInt(100000);
+		insertionSort(a);
+		insertionTime = System.currentTimeMillis() - start;
+		
+		start = System.currentTimeMillis();
+		for (int i = 0; i < N; i++)
+			a[i] = rand.nextInt(100000);
+		shellSort(a);
+		shellTime = System.currentTimeMillis() - start;
+		
+		start = System.currentTimeMillis();
+		for (int i = 0; i < N; i++)
+			a[i] = rand.nextInt(100000);
+		mergeSort(a);
+		mergeTime = System.currentTimeMillis() - start;
+		
+		start = System.currentTimeMillis();
+		for (int i = 0; i < N; i++)
+			a[i] = rand.nextInt(100000);
+		Arrays.sort(a);
+		quickTime = System.currentTimeMillis() - start;
+		
+		System.out.println("Sorting times in millis:");
+		System.out.println("Insertion sort : " + insertionTime);
+		System.out.println("Shell sort : " + shellTime);
+		System.out.println("Merge sort : " + mergeTime);
+		System.out.println("Quick sort : " + quickTime);
 	}
 	
 	private static void test2() {
