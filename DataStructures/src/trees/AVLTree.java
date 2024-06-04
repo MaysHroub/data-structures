@@ -84,7 +84,7 @@ public class AVLTree<T extends Comparable<T>> extends BinarySearchTree<T> {
 	@Override
 	public TNode<T> delete(T data) {
 		TNode<T> temp = super.delete(data);
-		if (temp != null) {
+		if (temp != null && root != null) {
 			TNode<T> rootNode = root;
 			root = rebalance(rootNode);
 		}
