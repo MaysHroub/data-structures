@@ -20,7 +20,7 @@ public class TestSorting {
 				String[] tokens = in.nextLine().split(",");
 				Martyr martyr = new Martyr(tokens[0], tokens[4], tokens[3],
 						tokens[5].charAt(0));
-				
+				list.add(martyr);
 			}
 			
 		} catch (FileNotFoundException e) {
