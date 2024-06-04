@@ -12,6 +12,11 @@ import heap.MaxHeap;
 public class TestSorting {
 
 	public static void main(String[] args) {
+		
+		
+	}
+	
+	private static void test3() {
 		int N = 100000;
 		Integer[] a = new Integer[N];
 		Random rand = new Random();
