@@ -52,6 +52,11 @@ public class TestHashing {
 		quadraticHash.add(1);
 		quadraticHash.add(2);
 		quadraticHash.add(3);
+		quadraticHash.traverse();System.out.println();
+		quadraticHash.delete(1);
+		quadraticHash.traverse();System.out.println();
+		quadraticHash.add(1);
+		quadraticHash.traverse();System.out.println();
 		quadraticHash.add(-24);
 		quadraticHash.add(-24);
 		quadraticHash.add(47);
