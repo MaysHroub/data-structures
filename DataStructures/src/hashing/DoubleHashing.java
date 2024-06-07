@@ -12,7 +12,7 @@ public class DoubleHashing<T extends Comparable<T>> extends OpenAddressignHash<T
 		int h1 = (short) Math.abs(data.hashCode()), h2 = (short) Math.abs((data.hashCode() >> 16));
 		if (h2 == 0) h2 = 17;
 		int i = 0;
-		for (; table[Math.abs(h1 + (i++)*h2) % m].getFlag() != Flag.EMPTY && i <= m; collisions++);
+		for (; table[Math.abs(h1 + (i++)*h2) % m].getFlag() == Flag.FULL && i <= m; collisions++);
 		if (i > m) // a loop occurred
 			System.out.println("This element cannot be added");
 		else {

@@ -11,7 +11,7 @@ public class QuadraticOHash<T extends Comparable<T>>  extends OpenAddressignHash
 		if (size == m/2) rehash();
 		int index = Math.abs(data.hashCode()) % m;
 		int i = 0;
-		for (; table[(index + i * (i++)) % m].getFlag() != Flag.EMPTY && i <= m; collisions++);
+		for (; table[(index + i * (i++)) % m].getFlag() == Flag.FULL && i <= m; collisions++);
 		if (i > m) // a loop occurred
 			System.out.println("This element cannot be added");
 		else {
