@@ -15,6 +15,6 @@ This repo contains the implementation of all data structures developed as part o
 
 
 
-### Important Note
+### Important Note (⌐■_■)
 This repo is intended to help you understand and practice data structure concepts. 
 Please use it as a reference and learning tool rather than simply copying and pasting the code :)
