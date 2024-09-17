@@ -33,14 +33,11 @@ public class AlgebraicExpEvaluator {
 		while (i < exp.length()) {
 			char nextCharacter = exp.charAt(i++);
 			switch (nextCharacter) {
-			case '{':
-			case '(':
-			case '[':
+			case '{': case '(': case '[':
 				stack.push(nextCharacter);
 				break;
-			case '}':
-			case ')':
-			case ']':
+				
+			case '}': case ')': case ']':
 				if (stack.isEmpty())
 					return false;
 				else {
