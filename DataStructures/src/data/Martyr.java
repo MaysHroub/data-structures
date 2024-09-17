@@ -1,17 +1,21 @@
 package data;
 
+import java.util.Date;
+
 public class Martyr implements Comparable<Martyr> {
 	
-	private String name, district, location;
+	private String name;
 	private char gender;
+	private int age;
+	private Date event;
 	
 	public Martyr() {}
 	
-	public Martyr(String name, String district, String location, char gender) {
+	public Martyr(String name, int age, char gender, Date event) {
 		setName(name);
-		setDistrict(district);
-		setLocation(location);
+		setAge(age);
 		setGender(gender);
+		setEvent(event);
 	}
 
 	public char getGender() {
@@ -32,31 +36,66 @@ public class Martyr implements Comparable<Martyr> {
 		this.name = name;
 	}
 
-	public String getDistrict() {
-		return district;
+	public int getAge() {
+		return age;
 	}
 
-	public void setDistrict(String district) {
-		this.district = district;
-	}
-
-	public String getLocation() {
-		return location;
-	}
-
-	public void setLocation(String location) {
-		this.location = location;
+	public void setAge(int age) {
+		if (age < 0) throw new IllegalArgumentException("Invalid age value");
+		this.age = age;
 	}
 	
-	@Override
-	public int compareTo(Martyr o) {
-		int comp = district.compareToIgnoreCase(o.district);
-		return (comp == 0) ? name.compareToIgnoreCase(o.name) : comp;
+	public Date getEvent() {
+		return event;
+	}
+
+	public void setEvent(Date event) {
+		this.event = event;
 	}
 	
 	@Override
 	public String toString() {
 		return name;
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (!(obj instanceof Martyr)) return false;
+		Martyr m = (Martyr) obj;
+		return name.equalsIgnoreCase(m.name) && age == m.age; // check the name for the combo box selection
+	}
+	
+	@Override
+	public int compareTo(Martyr o) {
+		return age - o.age;
+	}
+	
+	@Override
+	public int hashCode() {
+		int hash = 17;
+		hash = 31*hash + name.hashCode();
+		hash = 31*hash + event.hashCode();
+		hash = 31*hash + ((Integer) age).hashCode();
+		return hash;
+	}
+	
+	// csv data : Name,Event,Age,Location,District,Gender
+		public static Martyr constructMartyr(String csvData) {
+			String[] data = csvData.split(",");
+			if (data[0].toLowerCase().contains("unknown") || data[2].equals("") ||
+					data[5].charAt(0) != 'F' && data[5].charAt(0) != 'M')
+				return null;
+			
+			Martyr martyr = new Martyr();
+			martyr.setName(data[0]);
+			String[] dateInfo = data[1].split("/");
+			@SuppressWarnings("deprecation")
+			// mm/dd/yyyy
+			Date date = new Date(Integer.parseInt(dateInfo[2])-1900, Integer.parseInt(dateInfo[0])-1, Integer.parseInt(dateInfo[1]));
+			martyr.setEvent(date);
+			martyr.setAge(0);
+			martyr.setGender(data[5].charAt(0));
+			return martyr;
+		}
 
 }
