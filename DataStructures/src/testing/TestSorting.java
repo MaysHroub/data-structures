@@ -205,7 +205,7 @@ public class TestSorting {
 			merge(data, left, m, right); 
 		}
 	}
-
+	
 	private static void merge(Comparable[] data, int left, int m, int right) {
 		int n1 = m - left + 1;
 		int n2 = right - m;
