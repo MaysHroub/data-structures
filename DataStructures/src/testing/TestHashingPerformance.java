@@ -4,9 +4,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import data.Martyr;
 import hashing.DoubleHashing;
 import hashing.LinearOHash;
-import hashing.Martyr;
 import hashing.QuadraticOHash;
 import hashing.SHash;
 

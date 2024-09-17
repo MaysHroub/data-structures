@@ -72,7 +72,7 @@ public class TestSorting {
 	}
 
 	private static void test3() {
-		int N = 100000;
+		int N = 10000;
 		Integer[] a = new Integer[N];
 		Random rand = new Random();
 		
@@ -116,9 +116,8 @@ public class TestSorting {
 		try (Scanner in = new Scanner(new File(path))) {
 			in.nextLine(); // 0.name, 1.event, 2.age, 3.location, 4.district, 5.gender
 			while (in.hasNext()) {
-				String[] tokens = in.nextLine().split(",");
-				Martyr martyr = new Martyr(tokens[0], tokens[4], tokens[3],
-						tokens[5].charAt(0));
+				Martyr martyr = Martyr.constructMartyr(in.nextLine());
+				if (martyr == null) continue;
 				list.add(martyr);
 			}
 			
