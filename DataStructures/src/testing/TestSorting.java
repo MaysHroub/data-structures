@@ -8,6 +8,8 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.Random;
 import java.util.Scanner;
+
+import data.Martyr;
 import heap.MaxHeap;
 
 public class TestSorting {

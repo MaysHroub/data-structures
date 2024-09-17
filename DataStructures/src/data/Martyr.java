@@ -1,4 +1,4 @@
-package testing;
+package data;
 
 public class Martyr implements Comparable<Martyr> {
 	
