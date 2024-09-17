@@ -4,21 +4,21 @@ import queue.LinkedListQueue;
 import stack.LinkedListStack;
 
 public class BinarySearchTree<T extends Comparable<T>> {
-	
+
 	protected TNode<T> root;
-	
-	
+
 	public void traverseInOrder() {
 		traverseInOrder(root);
 	}
 
 	private void traverseInOrder(TNode<T> curr) {
-		if (curr == null) return;
+		if (curr == null)
+			return;
 		traverseInOrder(curr.getLeft());
 		System.out.print(curr + " ");
 		traverseInOrder(curr.getRight());
 	}
-	
+
 	public void iterativeInOrderTraverse() {
 		LinkedListStack<TNode<T>> nodeStack = new LinkedListStack<>();
 		TNode<T> curr = root;
@@ -36,41 +36,46 @@ public class BinarySearchTree<T extends Comparable<T>> {
 			}
 		}
 	}
-	
+
 	public void traversePreOrder() {
 		traversePreOrder(root);
 	}
 
 	private void traversePreOrder(TNode<T> curr) {
-		if (curr == null) return;
+		if (curr == null)
+			return;
 		System.out.print(curr + " ");
 		traversePreOrder(curr.getLeft());
 		traversePreOrder(curr.getRight());
 	}
-	
+
 	public void traversePostOrder() {
 		traversePostOrder(root);
 	}
 
 	private void traversePostOrder(TNode<T> curr) {
-		if (curr == null) return;
+		if (curr == null)
+			return;
 		traversePreOrder(curr.getLeft());
 		traversePreOrder(curr.getRight());
 		System.out.print(curr + " ");
 	}
-	
+
 	public void traverseLevelOrder() {
-		if (root == null) return;
+		if (root == null)
+			return;
 		LinkedListQueue<TNode<T>> queue = new LinkedListQueue<>();
 		queue.enqueue(root);
 		while (!queue.isEmpty()) {
 			TNode<T> curr = queue.dequeue();
 			System.out.print(curr + " ");
-			if (curr.hasLeft()) queue.enqueue(curr.getLeft());
-			if (curr.hasRight()) queue.enqueue(curr.getRight());
+			if (curr.hasLeft())
+				queue.enqueue(curr.getLeft());
+			if (curr.hasRight())
+				queue.enqueue(curr.getRight());
 		}
 	}
-	
+
 	public TNode<T> find(T data) {
 		return find(root, data);
 	}
@@ -78,56 +83,65 @@ public class BinarySearchTree<T extends Comparable<T>> {
 	private TNode<T> find(TNode<T> curr, T data) {
 		if (curr != null) {
 			int comp = curr.getData().compareTo(data);
-			if (comp == 0) return curr;
-			else if (comp > 0 && curr.hasLeft()) return find(curr.getLeft(), data);
-			else /*if (comp < 0 && curr.hasRight())*/ return find(curr.getRight(), data);
+			if (comp == 0)
+				return curr;
+			else if (comp > 0 && curr.hasLeft())
+				return find(curr.getLeft(), data);
+			else
+				/* if (comp < 0 && curr.hasRight()) */ return find(curr.getRight(), data);
 		}
 		return null;
 	}
-	
+
 	public TNode<T> smallest() {
 		return smallest(root);
 	}
 
 	private TNode<T> smallest(TNode<T> curr) {
-		if (curr == null) return null;
-		if (curr.getLeft() == null) return curr;
+		if (curr == null)
+			return null;
+		if (curr.getLeft() == null)
+			return curr;
 		return smallest(curr.getLeft());
 	}
-	
+
 	public TNode<T> largest() {
 		return largest(root);
 	}
 
 	private TNode<T> largest(TNode<T> curr) {
-		if (curr == null) return null;
-		if (curr.getRight() == null) return curr;
+		if (curr == null)
+			return null;
+		if (curr.getRight() == null)
+			return curr;
 		return smallest(curr.getRight());
 	}
-	
+
 	public int height() {
 		return height(root);
 	}
 
 	protected int height(TNode<T> curr) {
-		if (curr == null) return 0;
-		// if (curr.isLeaf()) return 1;  // there is no need for this line
+		if (curr == null)
+			return 0;
+		// if (curr.isLeaf()) return 1; // there is no need for this line
 		return 1 + Math.max(height(curr.getLeft()), height(curr.getRight()));
 	}
-	
+
 	public int size() {
 		return size(root);
 	}
-	
+
 	private int size(TNode<T> curr) {
-		if (curr == null) return 0;
+		if (curr == null)
+			return 0;
 		return 1 + size(curr.getLeft()) + size(curr.getRight());
 	}
 
 	public void insert(T data) {
 		if (root == null)
 			root = new TNode<>(data);
-		else 
+		else
 			insert(data, root);
 	}
 
@@ -135,22 +149,23 @@ public class BinarySearchTree<T extends Comparable<T>> {
 		if (data.compareTo(curr.getData()) >= 0) { // insert into right subtree
 			if (!curr.hasRight())
 				curr.setRight(new TNode<>(data));
-			else 
-				insert(data, curr.getRight());			
+			else
+				insert(data, curr.getRight());
 		} else { // insert into left subtree
 			if (!curr.hasLeft())
 				curr.setLeft(new TNode<>(data));
-			else 
-				insert(data, curr.getLeft());	
+			else
+				insert(data, curr.getLeft());
 		}
 	}
-	
+
 	public TNode<T> delete(T data) {
 		TNode<T> curr = root, parent = root;
 		boolean isLeftChild = false;
-		
-		if (root == null) return null; // empty tree 
-		
+
+		if (root == null)
+			return null; // empty tree
+
 		while (curr != null && curr.getData().compareTo(data) != 0) {
 			parent = curr;
 			if (data.compareTo(curr.getData()) < 0) { // left subtree
@@ -161,43 +176,47 @@ public class BinarySearchTree<T extends Comparable<T>> {
 				isLeftChild = false;
 			}
 		}
-	
-		if (curr == null) return null; // not found
-		
+
+		if (curr == null)
+			return null; // not found
+
 		// case 1: deleted node is a leaf
 		if (curr.isLeaf()) {
-			if (curr == root) root = null; // tree has only one node
-			else if (isLeftChild) parent.setLeft(null);
-			else parent.setRight(null);
+			if (curr == root)
+				root = null; // tree has only one node
+			else if (isLeftChild)
+				parent.setLeft(null);
+			else
+				parent.setRight(null);
 		}
-		
+
 		// case 2: deleted node has one child
 		// broken into 2 sub-cases
 		else if (curr.hasLeft() && !curr.hasRight()) { // has only left child
 			if (curr == root)
 				root = curr.getLeft();
-			else if (isLeftChild) 
+			else if (isLeftChild)
 				parent.setLeft(curr.getLeft());
-			else 
+			else
 				parent.setRight(curr.getLeft());
-			
+
 		} else if (curr.hasRight() && !curr.hasLeft()) { // has only right child
 			if (curr == root)
 				root = curr.getRight();
-			else if (isLeftChild) 
+			else if (isLeftChild)
 				parent.setLeft(curr.getRight());
-			else 
+			else
 				parent.setRight(curr.getRight());
 		}
-		
+
 		// case 3: deleted node has 2 children
 		else {
 			TNode<T> successor = getSuccessor(curr);
-			if (curr == root) 
+			if (curr == root)
 				root = successor;
-			else if (isLeftChild) 
+			else if (isLeftChild)
 				parent.setLeft(successor);
-			else 
+			else
 				parent.setRight(successor);
 			successor.setLeft(curr.getLeft());
 		}
@@ -205,10 +224,8 @@ public class BinarySearchTree<T extends Comparable<T>> {
 	}
 
 	private TNode<T> getSuccessor(TNode<T> node) {
-		TNode<T> successorParent = node,
-				successor = node,
-				curr = node.getRight();
-		
+		TNode<T> successorParent = node, successor = node, curr = node.getRight();
+
 		while (curr != null) {
 			successorParent = successor;
 			successor = curr;
@@ -220,47 +237,64 @@ public class BinarySearchTree<T extends Comparable<T>> {
 		}
 		return successor;
 	}
-	
+
+	public TNode<T> recursiveDelete(T data) {
+		return recursiveDelete(this.root, data);
+	}
+
+	private TNode<T> recursiveDelete(TNode<T> node, T data) {
+		if (node == null)
+			return node;
+		else if (node.getData().compareTo(data) == 0) {
+			if (node.getLeft() == null && node.getRight() == null) 
+				return null;
+			else if (node.getLeft() == null) 
+				return node.getRight();
+			else if (node.getRight() == null) 
+				return node.getLeft();
+			else {
+				node.setData(findMin(node.getRight()).getData());
+				node.setRight(recursiveDelete(node.getRight(), node.getData()));
+			}
+		} 
+		else if (data.compareTo(node.getData()) < 0) 
+			node.setLeft(recursiveDelete(node.getLeft(), data));
+		else 
+			node.setRight(recursiveDelete(node.getRight(), data));
+		
+		return node;
+	}
+
+	private TNode<T> findMin(TNode<T> node) {
+		if (node == null)
+			return node;
+		if (node.getLeft() != null)
+			return findMin(node.getLeft());
+		return node;
+	}
+
 	public int countLeaves() {
 		return countLeaves(root);
 	}
 
 	private int countLeaves(TNode<T> curr) {
-		if (curr == null) return 0;
-		if (curr.isLeaf()) return 1;
+		if (curr == null)
+			return 0;
+		if (curr.isLeaf())
+			return 1;
 		return countLeaves(curr.getLeft()) + countLeaves(curr.getRight());
 	}
-	
+
 	public int countParents() {
 		return countParents(root);
 	}
 
 	private int countParents(TNode<T> curr) {
-		if (curr == null) return 0;
-		if (!curr.isLeaf()) return 1;
+		if (curr == null)
+			return 0;
+		if (!curr.isLeaf())
+			return 1;
 		return countParents(curr.getLeft()) + countParents(curr.getRight());
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
