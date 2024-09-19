@@ -24,8 +24,10 @@ public abstract class OpenAddressignHash<T extends Comparable<T>> {
 	
 	public HNode<T> delete(T data) {
 		HNode<T> deleted = find(data);
-		if (deleted != null) deleted.setFlag(Flag.DELETED);
-		--size;
+		if (deleted != null) {
+			deleted.setFlag(Flag.DELETED);
+			--size;
+		}
 		return deleted;
 	}
 	
