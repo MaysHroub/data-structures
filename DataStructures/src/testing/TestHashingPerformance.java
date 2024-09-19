@@ -8,12 +8,12 @@ import data.Martyr;
 import hashing.DoubleHashing;
 import hashing.LinearOHash;
 import hashing.QuadraticOHash;
-import hashing.SHash;
+import hashing.SeparateChainingHash;
 
 public class TestHashingPerformance {
 
 	public static void main(String[] args) throws FileNotFoundException {
-		SHash<Martyr> sHash = new SHash<>(2000);
+		SeparateChainingHash<Martyr> sHash = new SeparateChainingHash<>(2000);
 		LinearOHash<Martyr> linearOHash = new LinearOHash<>(10000);
 		QuadraticOHash<Martyr> quadraticOHash = new QuadraticOHash<>(10000);
 		DoubleHashing<Martyr> doubleHashing = new DoubleHashing<>(10000);

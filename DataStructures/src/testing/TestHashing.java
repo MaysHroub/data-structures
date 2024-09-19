@@ -2,7 +2,7 @@ package testing;
 
 import hashing.LinearOHash;
 import hashing.QuadraticOHash;
-import hashing.SHash;
+import hashing.SeparateChainingHash;
 
 public class TestHashing {
 
@@ -12,7 +12,7 @@ public class TestHashing {
 		System.out.println((--i) * i);
 		System.out.println(i);
 		
-		SHash<Integer> hashTable = new SHash<>(10);  // m = 10
+		SeparateChainingHash<Integer> hashTable = new SeparateChainingHash<>(10);  // m = 10
 		hashTable.add(1);
 		hashTable.add(11);
 		hashTable.add(21);

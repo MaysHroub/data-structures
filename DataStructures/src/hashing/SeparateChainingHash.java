@@ -3,13 +3,13 @@ package hashing;
 import linkedlist.LinkedList;
 import linkedlist.Node;
 
-public class SHash<T extends Comparable<T>> {
+public class SeparateChainingHash<T extends Comparable<T>> {
 	
 	private LinkedList<T>[] table;
 	private int size;
 	
 	@SuppressWarnings("unchecked")
-	public SHash(int size) {
+	public SeparateChainingHash(int size) {
 		this.size = size;
 		table = new LinkedList[size];
 		for (int i = 0; i < size; i++) 
