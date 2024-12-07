@@ -21,7 +21,7 @@ public class ArrayStack<T extends Comparable<T>> implements Stackable<T> {
 	@Override
 	public T pop() {
 		if (isEmpty()) return null; 
-		return arr[top--];
+		return arr[--top];
 	}
 
 	@Override
